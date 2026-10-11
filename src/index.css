@@ -2,7 +2,7 @@
 
 :root {
   /* =========================================================
-     THÈME OFFICIEL GEOGUESSR V2 (Deep Cosmic Violet & Neon)
+     THÈME OFFICIEL BIZGAMES V2 (Deep Cosmic Violet & Neon)
      ========================================================= */
   --bg-primary: #15132a;
   --bg-secondary: #1a1638;
@@ -14,7 +14,7 @@
   --bg-surface: rgba(32, 27, 63, 0.94);
   --bg-glass: rgba(116, 64, 230, 0.08);
 
-  /* GeoGuessr Accents */
+  /* Accents BizGames */
   --geo-red: #e12239;
   --geo-red-dark: #b8162a;
   --geo-green: #68de18;
@@ -53,7 +53,7 @@ html, body, #root {
   height: 100%;
   min-height: 100dvh;
   background-color: var(--bg-primary);
-  /* Fond Cosmique Étoilé GeoGuessr */
+  /* Fond Cosmique Étoilé */
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(116, 64, 230, 0.15) 0%, transparent 40%),
     radial-gradient(circle at 85% 75%, rgba(225, 34, 57, 0.12) 0%, transparent 45%),
@@ -73,7 +73,7 @@ html, body, #root {
 }
 
 /* =========================================================
-   BOUTONS 3D ICONIQUES GEOGUESSR
+   BOUTONS 3D ICONIQUES BIZGAMES
    ========================================================= */
 .geo-btn-green {
   background: var(--geo-green);
@@ -136,7 +136,7 @@ html, body, #root {
 }
 
 /* =========================================================
-   CARTES GÉOGUESSR (VIOLET PROFOND + BORDURES DOUCES)
+   CARTES COSMIQUES (VIOLET PROFOND + BORDURES DOUCES)
    ========================================================= */
 .geo-card {
   background: var(--bg-card);
@@ -151,8 +151,7 @@ html, body, #root {
 }
 
 /* Badge Logo Rouge BizGames */
-.geo-logo-badge,
-.geoguessr-logo-badge {
+.geo-logo-badge {
   background: var(--geo-red);
   color: #ffffff;
   padding: 6px 14px;
@@ -168,13 +167,12 @@ html, body, #root {
   user-select: none;
   transition: transform 0.12s ease;
 }
-.geo-logo-badge:active,
-.geoguessr-logo-badge:active {
+.geo-logo-badge:active {
   transform: scale(0.96);
 }
 
 /* =========================================================
-   PINS DE JEU GEOGUESSR
+   PINS DE JEU
    ========================================================= */
 .custom-guess-pin {
   display: flex;
@@ -216,7 +214,7 @@ html, body, #root {
   }
 }
 
-/* Ligne pointillée animée GeoGuessr (Blanc lumineux) */
+/* Ligne pointillée animée (Blanc lumineux) */
 .path-dash-animated {
   stroke-dasharray: 8, 8;
   stroke: #ffffff;
@@ -269,7 +267,7 @@ html, body, #root {
   color: var(--geo-green);
 }
 
-/* Scrollbar Stylisée GeoGuessr */
+/* Scrollbar Stylisée */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
