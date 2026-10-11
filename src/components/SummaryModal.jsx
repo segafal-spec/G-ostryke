@@ -13,6 +13,10 @@ import {
   ChevronUp,
   MapPin,
   Lock,
+  Compass,
+  Clock,
+  RotateCcw,
+  Home,
 } from 'lucide-react';
 import { getRankTitle, generateShareText, getScoreEmoji, getSocialShareUrls } from '../utils/geo';
 import { playGameOverFanfare, playCopySound, playClickSound } from '../utils/audio';
@@ -30,24 +34,26 @@ export default function SummaryModal({
   onOpenPlayerHub,
 }) {
   const [copied, setCopied] = useState(false);
-  const [expandedIdx, setExpandedIdx] = useState(null);
+  const [activeTab, setActiveTab] = useState('round'); // 'round' | 'ranks' | 'share'
   const rank = getRankTitle(totalScore);
   const isUserLoggedIn = authInfo && authInfo.user && !authInfo.isAnonymous;
 
   const shareText = generateShareText(roundDate, totalScore, history, totalSeconds);
   const socialLinks = getSocialShareUrls(shareText);
 
-  // Déclencher les effets sonores et confettis de fin de partie
+  // Calcul des statistiques du récapitulatif
+  const totalKm = history.reduce((sum, item) => sum + (Number(item.distanceKm) || 0), 0);
+  const avgKm = Math.round(totalKm / (history.length || 1));
+
   useEffect(() => {
-    // Fanfare triomphale selon le score
     playGameOverFanfare(totalScore >= 3200);
 
     if (totalScore >= 3500 || (totalScore <= 50 && totalScore >= 35)) {
       confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#f59e0b', '#10b981', '#3b82f6', '#ffffff'],
+        particleCount: 90,
+        spread: 80,
+        origin: { y: 0.55 },
+        colors: ['#68de18', '#7440e6', '#ffbe1a', '#ffffff'],
       });
     }
   }, [totalScore]);
@@ -74,267 +80,207 @@ export default function SummaryModal({
           url: 'https://bizgames-game.web.app',
         });
         return;
-      } catch (e) {
-        // Ignorer si l'utilisateur annule le dialogue système
-      }
+      } catch (e) {}
     }
     handleCopyShare();
   }
 
+  // Formatage du temps
+  const formatTime = (secs) => {
+    const m = Math.floor(secs / 60);
+    const s = secs % 60;
+    return m > 0 ? `${m} min, ${s} sec` : `${s} sec`;
+  };
+
   return (
     <div style={styles.backdrop}>
-      <div style={styles.modal}>
-        {/* En-tête */}
-        <div style={styles.header}>
-          <div style={styles.trophyWrapper}>
-            <img
-              src="/images/characters/char_victory_trophy.jpg"
-              alt="Victoire Éco-Titan"
-              style={styles.trophyImg}
-            />
-          </div>
-          <span style={styles.subTitle}>MISSION ÉCO-TITAN ACCOMPLIE • {roundDate}</span>
-          <div style={styles.scoreRow}>
-            <span style={styles.scoreNumber}>{totalScore.toLocaleString('fr-FR')}</span>
-            <span style={styles.scoreMax}>/ 5 000 pts</span>
-          </div>
-          <div style={{ fontSize: '13px', color: '#34d399', fontWeight: '800', marginTop: '2px', letterSpacing: '0.3px' }}>
-            Moyenne : {Math.round(totalScore / (history.length || 5)).toLocaleString('fr-FR')} / 1 000 pts • Points ajoutés à votre cumul final
-          </div>
-
-          {/* Titre honorifique */}
-          <div style={{ ...styles.rankBadge, borderColor: rank.color }}>
-            <span style={styles.rankIcon}>{rank.badge}</span>
-            <span style={{ ...styles.rankTitle, color: rank.color }}>{rank.title}</span>
+      <div style={styles.modal} className="geo-card">
+        {/* BANNIÈRE SUPÉRIEURE DE CARTE (SCREENSHOT 3) */}
+        <div style={styles.mapBannerWrapper}>
+          <img
+            src="/images/world_map_mockup.jpg"
+            alt="Carte de la manche"
+            style={styles.mapBannerImg}
+          />
+          <div style={styles.mapBannerOverlay} />
+          <div style={styles.bannerBadgePill}>
+            <span>DÉFI DU JOUR • {roundDate}</span>
           </div>
         </div>
 
-        {/* Grille emoji Wordle */}
-        <div style={styles.emojiGrid}>
-          {history.map((h, i) => (
-            <span key={i} style={styles.emojiCell}>
-              {getScoreEmoji(h.score, h.distanceKm)}
-            </span>
-          ))}
-        </div>
-
-        {/* Note moyenne du round */}
-        <div style={styles.quickStatsRow}>
-          <div style={styles.quickStat}>
-            <Award size={18} color="#10b981" />
-            <span style={styles.quickStatText}>
-              Score moyen du round : <strong style={{ color: '#ffffff', fontSize: '13px' }}>{Math.round(totalScore / (history.length || 5)).toLocaleString('fr-FR')} / 1 000 pts</strong>
+        {/* SCORE PRINCIPAL & MÉDAILLE (SCREENSHOT 3 STYLE) */}
+        <div style={styles.scoreSummaryRow}>
+          <div style={styles.medalWrapper}>
+            <span style={styles.medalEmoji}>
+              {totalScore >= 4500 ? '🥇' : totalScore >= 3200 ? '🥈' : '🥉'}
             </span>
           </div>
+          <div style={styles.scoreTextCol}>
+            <div style={styles.scoreBigNumber}>
+              {totalScore.toLocaleString('fr-FR')}
+            </div>
+            <span style={styles.scoreSubLabel}>VOTRE SCORE FINAL (SUR 5 000)</span>
+          </div>
+
+          <div style={styles.medalsTrophyTiers}>
+            <div style={styles.trophyMiniBadge}>
+              <span>🥇</span> <span>{totalScore >= 4500 ? 1 : 0}</span>
+            </div>
+            <div style={styles.trophyMiniBadge}>
+              <span>🥈</span> <span>{totalScore >= 3200 && totalScore < 4500 ? 1 : 0}</span>
+            </div>
+            <div style={styles.trophyMiniBadge}>
+              <span>🥉</span> <span>{totalScore < 3200 ? 1 : 0}</span>
+            </div>
+          </div>
         </div>
 
-        {/* Détail par question */}
-        <div style={styles.historyList}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={styles.historySectionTitle}>RÉCAPITULATIF DU ROUND</span>
-            <span style={{ fontSize: '11px', color: '#64748b' }}>Cliquez pour détails</span>
-          </div>
-          {history.map((item, idx) => {
-            const isExp = expandedIdx === idx;
-            return (
-              <div key={idx} style={styles.historyItemCard}>
-                <button
-                  type="button"
-                  onClick={() => setExpandedIdx(isExp ? null : idx)}
-                  style={styles.historyItemBtn}
-                >
-                  <span style={styles.historyEmoji}>{getScoreEmoji(item.score, item.distanceKm)}</span>
-                  <div style={styles.historyDetails}>
-                    <span style={styles.historyQuestion}>
-                      {item.question.lieu_nom || item.question.texte}
+        {/* ONGLET DE NAVIGATION INTERNE [MA PARTIE] [CLASSEMENT] [PARTAGER] */}
+        <div style={styles.tabNavRow}>
+          <button
+            onClick={() => setActiveTab('round')}
+            style={activeTab === 'round' ? styles.tabBtnActive : styles.tabBtn}
+          >
+            MA PARTIE
+          </button>
+          {onOpenLeaderboard && (
+            <button
+              onClick={onOpenLeaderboard}
+              style={styles.tabBtn}
+            >
+              CLASSEMENT
+            </button>
+          )}
+          <button
+            onClick={() => setActiveTab('share')}
+            style={activeTab === 'share' ? styles.tabBtnActive : styles.tabBtn}
+          >
+            PARTAGER
+          </button>
+        </div>
+
+        {/* TABLEAU RÉCAPITULATIF DES 5 TOURS (SCREENSHOT 3) */}
+        {activeTab === 'round' && (
+          <div style={styles.roundsSection}>
+            <div style={styles.roundsTable}>
+              {history.map((item, idx) => (
+                <div key={idx} style={styles.roundCardRow}>
+                  <div style={styles.roundNumberCol}>
+                    <span style={styles.roundNumLabel}>Tour {idx + 1}</span>
+                    <span style={styles.roundPinEmoji}>{getScoreEmoji(item.score, item.distanceKm)}</span>
+                  </div>
+                  <div style={styles.roundCenterCol}>
+                    <span style={styles.roundLocationName}>
+                      {item.question?.lieu_nom || item.question?.texte}
                     </span>
-                    <span style={styles.historySub}>
+                    <span style={styles.roundDistanceSub}>
                       {item.distanceKm < 1 ? '< 1 km' : `${item.distanceKm.toLocaleString('fr-FR')} km`}
                     </span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={styles.historyScore}>{item.score.toLocaleString('fr-FR')} / 1 000</span>
-                    {isExp ? <ChevronUp size={14} color="#64748b" /> : <ChevronDown size={14} color="#64748b" />}
+                  <div style={styles.roundScoreCol}>
+                    <span style={styles.roundPointsValue}>
+                      {item.score.toLocaleString('fr-FR')} pts
+                    </span>
                   </div>
-                </button>
+                </div>
+              ))}
 
-                {isExp && (
-                  <div style={styles.historyExpanded}>
-                    <div style={styles.historyExpandedQText}>
-                      <strong>Question :</strong> {item.question.texte}
-                    </div>
-                    <div style={styles.historyExpandedLieu}>
-                      <MapPin size={13} color="#10b981" />
-                      <strong>{item.question.lieu_nom}</strong>
-                      {item.question.pays && (
-                        <span style={{ color: '#94a3b8' }}>&nbsp;• {item.question.pays}</span>
-                      )}
-                    </div>
-                    {item.question.explication && (
-                      <p style={styles.historyExpandedExplication}>
-                        💡 {item.question.explication}
-                      </p>
-                    )}
-                  </div>
-                )}
+              {/* TOTAL ROW */}
+              <div style={styles.totalRow}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span style={styles.totalLabel}>TOTAL MANCHE</span>
+                  <span style={styles.totalSub}>{totalKm.toLocaleString('fr-FR')} km parcourus</span>
+                </div>
+                <span style={styles.totalPointsBig}>{totalScore.toLocaleString('fr-FR')} pts</span>
               </div>
-            );
-          })}
-        </div>
-
-        {/* Bannière d'authentification / Sauvegarde de score */}
-        {onOpenAuth && (
-          !isUserLoggedIn ? (
-            <div style={styles.authBanner} onClick={onOpenAuth}>
-              <div style={styles.authBannerIcon}>
-                <LogIn size={18} color="#f59e0b" />
-              </div>
-              <div style={styles.authBannerText}>
-                <span style={styles.authBannerTitle}>Sauvegardez vos scores & streaks</span>
-                <span style={styles.authBannerSub}>Connectez-vous avec votre e-mail</span>
-              </div>
-              <ChevronRight size={16} color="#94a3b8" />
             </div>
-          ) : (
-            <div style={styles.authBannerLogged} onClick={onOpenAuth}>
-              <span style={styles.authBannerCheck}>✓</span>
-              <span style={styles.authBannerTextLogged}>
-                Score synchronisé pour <strong>{authInfo.user.displayName || authInfo.user.email}</strong>
-              </span>
-            </div>
-          )
+          </div>
         )}
 
-        {/* Actions */}
-        <div style={styles.actions}>
-          {/* Bloc de partage réseaux sociaux */}
-          <div style={styles.socialShareSection}>
-            <span style={styles.socialShareTitle}>Partager mon score sur les réseaux</span>
-            
-            <div style={styles.socialIconsGrid}>
-              {/* 1. WhatsApp */}
+        {/* SECTION PARTAGE SOCIAL */}
+        {activeTab === 'share' && (
+          <div style={styles.shareSection}>
+            <span style={styles.shareHeadline}>Défiez vos amis sans spoiler le lieu !</span>
+            <div style={styles.socialButtonsGrid}>
               <a
                 href={socialLinks.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ ...styles.socialBtn, background: '#25D366' }}
-                title="Partager sur WhatsApp"
+                style={{ ...styles.socialPill, background: '#25D366' }}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.19 8.19 0 01-5.82 2.41c-1.45 0-2.88-.39-4.14-1.13l-.3-.18-3.08.81.82-3-.2-.31a8.17 8.17 0 01-1.25-4.44c0-4.54 3.7-8.24 8.24-8.24m4.54 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
-                </svg>
                 <span>WhatsApp</span>
               </a>
-
-              {/* 2. X (Twitter) */}
               <a
                 href={socialLinks.x}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ ...styles.socialBtn, background: '#000000', border: '1px solid rgba(255,255,255,0.2)' }}
-                title="Partager sur X / Twitter"
+                style={{ ...styles.socialPill, background: '#000000', border: '1px solid #352d62' }}
               >
-                <span style={{ fontWeight: '900', fontSize: '15px' }}>𝕏</span>
-                <span>Post</span>
+                <span>𝕏 Post</span>
               </a>
-
-              {/* 3. LinkedIn */}
               <a
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ ...styles.socialBtn, background: '#0A66C2' }}
-                title="Partager sur LinkedIn"
+                style={{ ...styles.socialPill, background: '#0A66C2' }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
                 <span>LinkedIn</span>
               </a>
-
-              {/* 4. Telegram */}
-              <a
-                href={socialLinks.telegram}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ ...styles.socialBtn, background: '#229ED9' }}
-                title="Partager sur Telegram"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
-                </svg>
-                <span>Telegram</span>
-              </a>
-
-              {/* 5. Facebook */}
-              <a
-                href={socialLinks.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ ...styles.socialBtn, background: '#1877F2' }}
-                title="Partager sur Facebook"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.6 13.77 5.6c1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/>
-                </svg>
-                <span>Facebook</span>
-              </a>
-
-              {/* 6. Reddit */}
-              <a
-                href={socialLinks.reddit}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ ...styles.socialBtn, background: '#FF4500' }}
-                title="Partager sur Reddit"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                  <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm5.01 9.4a1.38 1.38 0 011.39 1.38 1.35 1.35 0 01-.63 1.14 4.85 4.85 0 01-.1.86c0 2.21-2.58 4-5.77 4s-5.77-1.79-5.77-4a4.85 4.85 0 01-.1-.86 1.35 1.35 0 01-.63-1.14 1.38 1.38 0 011.39-1.38 1.33 1.33 0 01.91.37 8.35 8.35 0 014.2-1.12l.71-3.37a.38.38 0 01.32-.28l2.35-.49a1 1 0 11.23.63l-2.07.43-.63 2.95a8.35 8.35 0 014.18 1.12 1.33 1.33 0 01.91-.37z"/>
-                </svg>
-                <span>Reddit</span>
-              </a>
             </div>
-          </div>
 
-          {/* Bouton Copier / Partage Système */}
-          <button onClick={handleNativeOrCopy} style={styles.shareButton}>
-            {copied ? (
-              <>
-                <Check size={18} color="#10b981" />
-                <span>Copié dans le presse-papiers !</span>
-              </>
-            ) : (
-              <>
-                <Share2 size={18} />
-                <span>Copier le texte (Wordle style)</span>
-              </>
-            )}
-          </button>
-
-          {/* Bouton Classement */}
-          {onOpenLeaderboard && (
-            <button onClick={onOpenLeaderboard} style={styles.leaderboardModalBtn}>
-              <Trophy size={17} color="#f59e0b" />
-              <span>Voir ma position au classement du jour</span>
+            <button
+              onClick={handleNativeOrCopy}
+              className="geo-btn-purple"
+              style={{ width: '100%', marginTop: '12px' }}
+            >
+              {copied ? <Check size={16} /> : <Share2 size={16} />}
+              <span>{copied ? 'Copié dans le presse-papiers !' : 'Copier mon résultat complet'}</span>
             </button>
-          )}
-
-          {/* Bouton Mon Espace Joueur */}
-          {onOpenPlayerHub && (
-            <button onClick={onOpenPlayerHub} style={styles.playerHubModalBtn}>
-              <User size={16} color="#3b82f6" />
-              <span>Mon Espace & Statistiques Complètes</span>
-            </button>
-          )}
-
-          <div style={styles.dailyLockedNotice}>
-            <Lock size={13} color="#10b981" />
-            <span>Vos points du jour sont ajoutés à votre total cumulé au classement final</span>
           </div>
+        )}
 
+        {/* BANNIÈRE JOUEUR SYNCHRONISÉ */}
+        {!isUserLoggedIn && onOpenAuth ? (
+          <div style={styles.loginBanner} onClick={onOpenAuth}>
+            <LogIn size={18} color="#ffbe1a" />
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+              <span style={{ fontSize: '13px', fontWeight: '800', color: '#ffffff' }}>
+                Sauvegardez votre série & vos points
+              </span>
+              <span style={{ fontSize: '11px', color: '#b3a9db' }}>
+                Créez un compte gratuit pour figurer au palmarès mondial
+              </span>
+            </div>
+            <ChevronRight size={16} color="#ffffff" />
+          </div>
+        ) : (
+          <div style={styles.loggedNotice}>
+            <Check size={14} color="#68de18" />
+            <span>Score synchronisé avec succès pour votre profil !</span>
+          </div>
+        )}
+
+        {/* ACTIONS INFÉRIEURES (BOUTONS VERTS GEOGUESSR) */}
+        <div style={styles.actionButtonsCol}>
           {onGoHome && (
-            <button onClick={onGoHome} style={styles.homeReturnButton}>
-              <span>Retour à la page d'accueil</span>
+            <button
+              onClick={onGoHome}
+              className="geo-btn-green"
+              style={styles.actionBtnGreen}
+            >
+              <Home size={18} />
+              <span>RETOURNER AU MENU PRINCIPAL</span>
+            </button>
+          )}
+
+          {onOpenPlayerHub && (
+            <button
+              onClick={onOpenPlayerHub}
+              className="geo-btn-purple"
+              style={{ width: '100%' }}
+            >
+              <User size={16} />
+              <span>VOIR MON ESPACE JOUEUR & STATS</span>
             </button>
           )}
         </div>
@@ -351,398 +297,284 @@ const styles = {
     right: 0,
     bottom: 0,
     zIndex: 2000,
-    background: 'rgba(10, 14, 23, 0.85)',
-    backdropFilter: 'blur(12px)',
+    background: 'rgba(10, 8, 20, 0.88)',
+    backdropFilter: 'blur(16px)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '16px',
-    animation: 'fadeIn 0.25s ease-out',
+    animation: 'fadeIn 0.2s ease-out',
   },
   modal: {
-    background: 'rgba(3, 18, 14, 0.96)',
-    border: '1px solid rgba(16, 185, 129, 0.35)',
+    background: 'var(--bg-card)',
+    border: '1px solid var(--bg-card-border)',
     borderRadius: '24px',
     width: '100%',
-    maxWidth: '520px',
+    maxWidth: '560px',
     maxHeight: '92vh',
     overflowY: 'auto',
-    padding: '28px',
-    boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(16, 185, 129, 0.15)',
-    animation: 'popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+    padding: '0 0 24px 0',
+    boxShadow: '0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(116, 64, 230, 0.25)',
     display: 'flex',
     flexDirection: 'column',
-    gap: '20px',
-  },
-  header: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    gap: '6px',
-  },
-  trophyWrapper: {
-    width: '84px',
-    height: '84px',
-    borderRadius: '50%',
+    position: 'relative',
     overflow: 'hidden',
-    border: '3px solid #10b981',
-    boxShadow: '0 0 30px rgba(16, 185, 129, 0.45)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: '6px',
-    backgroundColor: '#041712',
   },
-  trophyImg: {
+  mapBannerWrapper: {
+    position: 'relative',
+    height: '140px',
+    width: '100%',
+    overflow: 'hidden',
+  },
+  mapBannerImg: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
   },
-  subTitle: {
-    fontSize: '11px',
-    fontWeight: '800',
-    color: '#6ee7b7',
-    letterSpacing: '1px',
-    textTransform: 'uppercase',
+  mapBannerOverlay: {
+    position: 'absolute',
+    inset: 0,
+    background: 'linear-gradient(180deg, rgba(21, 19, 42, 0.2) 0%, rgba(32, 27, 63, 0.95) 100%)',
   },
-  scoreRow: {
-    display: 'flex',
-    alignItems: 'baseline',
-    gap: '6px',
-  },
-  scoreNumber: {
-    fontFamily: 'var(--font-heading)',
-    fontSize: '38px',
-    fontWeight: '900',
-    color: '#ffffff',
-    letterSpacing: '-1px',
-  },
-  scoreMax: {
-    fontSize: '18px',
-    fontWeight: '700',
-    color: '#64748b',
-  },
-  rankBadge: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '6px 14px',
-    borderRadius: '20px',
-    background: 'rgba(255, 255, 255, 0.04)',
-    border: '1px solid',
-    marginTop: '4px',
-  },
-  rankIcon: {
-    fontSize: '16px',
-  },
-  rankTitle: {
-    fontSize: '13px',
-    fontWeight: '700',
-    letterSpacing: '0.2px',
-  },
-  emojiGrid: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '10px',
-    fontSize: '28px',
-    background: 'rgba(255, 255, 255, 0.03)',
-    padding: '12px',
-    borderRadius: '14px',
-    border: '1px solid rgba(255, 255, 255, 0.06)',
-  },
-  emojiCell: {
-    lineHeight: '1',
-  },
-  quickStatsRow: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '10px 14px',
-    background: 'rgba(255, 255, 255, 0.02)',
-    borderRadius: '12px',
-    border: '1px solid rgba(255, 255, 255, 0.05)',
-  },
-  quickStat: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '6px',
-  },
-  quickStatText: {
-    fontSize: '12px',
-    color: '#94a3b8',
-  },
-  historyList: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '8px',
-  },
-  historySectionTitle: {
-    fontSize: '10px',
-    fontWeight: '700',
-    color: '#64748b',
-    letterSpacing: '0.8px',
-    textTransform: 'uppercase',
-  },
-  historyItemCard: {
-    background: 'rgba(255, 255, 255, 0.03)',
-    border: '1px solid rgba(255, 255, 255, 0.06)',
-    borderRadius: '12px',
-    overflow: 'hidden',
-  },
-  historyItemBtn: {
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    background: 'none',
-    border: 'none',
-    padding: '10px 14px',
-    cursor: 'pointer',
-    textAlign: 'left',
-  },
-  historyEmoji: {
-    fontSize: '20px',
-  },
-  historyDetails: {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: 1,
-    overflow: 'hidden',
-  },
-  historyQuestion: {
-    fontSize: '13px',
-    fontWeight: '600',
-    color: '#e2e8f0',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-  },
-  historySub: {
-    fontSize: '11px',
-    color: '#94a3b8',
-  },
-  historyScore: {
-    fontFamily: 'var(--font-heading)',
-    fontSize: '13px',
-    fontWeight: '700',
-    color: '#f59e0b',
-  },
-  historyExpanded: {
-    padding: '0 14px 12px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '6px',
-    borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-    paddingTop: '8px',
-  },
-  historyExpandedQText: {
-    fontSize: '12px',
-    color: '#e2e8f0',
-    lineHeight: '1.4',
-  },
-  historyExpandedLieu: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '5px',
-    fontSize: '12px',
-    color: '#34d399',
-    fontWeight: '600',
-  },
-  historyExpandedExplication: {
-    fontSize: '11px',
-    color: '#cbd5e1',
-    lineHeight: '1.45',
-    margin: 0,
-    background: 'rgba(2, 6, 23, 0.4)',
-    padding: '8px 10px',
-    borderRadius: '8px',
-    borderLeft: '2px solid #10b981',
-  },
-  dailyLockedNotice: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '7px',
-    background: 'rgba(16, 185, 129, 0.1)',
-    border: '1px solid rgba(16, 185, 129, 0.25)',
-    borderRadius: '10px',
-    padding: '8px 12px',
-    fontSize: '11px',
-    fontWeight: '700',
-    color: '#34d399',
-  },
-  actions: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '10px',
-    marginTop: '6px',
-  },
-  socialShareSection: {
-    background: 'rgba(255, 255, 255, 0.03)',
-    border: '1px solid rgba(255, 255, 255, 0.08)',
-    borderRadius: '16px',
-    padding: '14px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '10px',
-  },
-  socialShareTitle: {
-    fontSize: '11px',
-    fontWeight: '700',
-    color: '#cbd5e1',
-    textTransform: 'uppercase',
-    letterSpacing: '0.6px',
-    textAlign: 'center',
-  },
-  socialIconsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '8px',
-  },
-  socialBtn: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '6px',
-    padding: '8px 10px',
-    borderRadius: '10px',
+  bannerBadgePill: {
+    position: 'absolute',
+    top: '12px',
+    left: '14px',
+    background: 'rgba(21, 19, 42, 0.85)',
+    border: '1px solid rgba(255, 255, 255, 0.15)',
+    borderRadius: '9999px',
+    padding: '4px 12px',
     color: '#ffffff',
     fontSize: '11px',
-    fontWeight: '700',
-    textDecoration: 'none',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
-    transition: 'transform 0.15s ease',
-  },
-  playerHubModalBtn: {
-    background: 'rgba(59, 130, 246, 0.12)',
-    border: '1px solid rgba(59, 130, 246, 0.35)',
-    borderRadius: '14px',
-    padding: '13px',
-    fontSize: '14px',
-    fontWeight: '700',
-    fontFamily: 'var(--font-heading)',
-    color: '#60a5fa',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px',
-    transition: 'all 0.2s',
-  },
-  leaderboardModalBtn: {
-    background: 'rgba(245, 158, 11, 0.12)',
-    border: '1px solid rgba(245, 158, 11, 0.35)',
-    borderRadius: '14px',
-    padding: '13px',
-    fontSize: '14px',
-    fontWeight: '700',
-    fontFamily: 'var(--font-heading)',
-    color: '#f59e0b',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px',
-    transition: 'all 0.2s',
-  },
-  shareButton: {
-    background: 'linear-gradient(135deg, #f59e0b 0%, #10b981 100%)',
-    color: '#03120e',
-    border: 'none',
-    borderRadius: '14px',
-    padding: '14px',
-    fontSize: '15px',
     fontWeight: '800',
-    fontFamily: 'var(--font-heading)',
-    cursor: 'pointer',
+    letterSpacing: '0.5px',
+  },
+  scoreSummaryRow: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px',
-    boxShadow: '0 6px 20px rgba(16, 185, 129, 0.35)',
-    transition: 'transform 0.15s ease',
+    gap: '16px',
+    padding: '0 24px',
+    marginTop: '-24px',
+    position: 'relative',
+    zIndex: 2,
   },
-  replayButton: {
-    background: 'transparent',
-    color: '#94a3b8',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
-    borderRadius: '14px',
-    padding: '12px',
-    fontSize: '13px',
-    fontWeight: '600',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px',
-    transition: 'all 0.2s',
-  },
-  homeReturnButton: {
-    background: 'transparent',
-    color: '#64748b',
-    border: 'none',
-    padding: '8px',
-    fontSize: '12px',
-    fontWeight: '500',
-    cursor: 'pointer',
-    textAlign: 'center',
-    textDecoration: 'underline',
-  },
-  authBanner: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    padding: '12px 14px',
-    background: 'rgba(245, 158, 11, 0.08)',
-    border: '1px solid rgba(245, 158, 11, 0.3)',
-    borderRadius: '14px',
-    cursor: 'pointer',
-    transition: 'transform 0.15s ease, background 0.15s ease',
-  },
-  authBannerIcon: {
-    width: '36px',
-    height: '36px',
-    borderRadius: '10px',
-    background: 'rgba(245, 158, 11, 0.15)',
+  medalWrapper: {
+    width: '64px',
+    height: '64px',
+    borderRadius: '50%',
+    background: 'linear-gradient(135deg, #2c2557, #15132a)',
+    border: '3px solid #7440e6',
+    boxShadow: '0 0 20px rgba(116, 64, 230, 0.5)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
   },
-  authBannerText: {
-    flex: 1,
+  medalEmoji: {
+    fontSize: '34px',
+  },
+  scoreTextCol: {
     display: 'flex',
     flexDirection: 'column',
-    textAlign: 'left',
+    flex: 1,
   },
-  authBannerTitle: {
+  scoreBigNumber: {
+    fontFamily: 'var(--font-heading)',
+    fontSize: '38px',
+    fontWeight: '900',
+    color: '#ffffff',
+    lineHeight: '1',
+  },
+  scoreSubLabel: {
+    fontSize: '11px',
+    fontWeight: '800',
+    color: '#ffbe1a',
+    letterSpacing: '0.6px',
+    marginTop: '4px',
+  },
+  medalsTrophyTiers: {
+    display: 'flex',
+    gap: '6px',
+  },
+  trophyMiniBadge: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '2px',
+    background: 'rgba(21, 19, 42, 0.8)',
+    border: '1px solid #352d62',
+    borderRadius: '9999px',
+    padding: '3px 7px',
+    fontSize: '11px',
+    fontWeight: '800',
+    color: '#ffffff',
+  },
+  tabNavRow: {
+    display: 'flex',
+    gap: '8px',
+    padding: '16px 24px 8px 24px',
+  },
+  tabBtn: {
+    background: 'transparent',
+    border: 'none',
+    color: '#b3a9db',
+    fontFamily: 'var(--font-heading)',
+    fontWeight: '800',
+    fontSize: '13px',
+    padding: '8px 14px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+  },
+  tabBtnActive: {
+    background: 'var(--geo-purple)',
+    border: 'none',
+    color: '#ffffff',
+    fontFamily: 'var(--font-heading)',
+    fontWeight: '900',
+    fontSize: '13px',
+    padding: '8px 14px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    boxShadow: '0 0 12px rgba(116, 64, 230, 0.4)',
+  },
+  roundsSection: {
+    padding: '0 24px',
+  },
+  roundsTable: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '8px',
+    background: 'rgba(21, 19, 42, 0.7)',
+    border: '1px solid #352d62',
+    borderRadius: '16px',
+    padding: '10px',
+  },
+  roundCardRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    padding: '8px 10px',
+    background: 'rgba(32, 27, 63, 0.8)',
+    borderRadius: '10px',
+  },
+  roundNumberCol: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '4px',
+    width: '70px',
+  },
+  roundNumLabel: {
+    fontSize: '11px',
+    fontWeight: '800',
+    color: '#7a71a3',
+  },
+  roundPinEmoji: {
+    fontSize: '12px',
+  },
+  roundCenterCol: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+  },
+  roundLocationName: {
+    color: '#ffffff',
     fontSize: '13px',
     fontWeight: '700',
-    color: '#f8fafc',
   },
-  authBannerSub: {
+  roundDistanceSub: {
+    color: '#b3a9db',
     fontSize: '11px',
-    color: '#f59e0b',
   },
-  authBannerLogged: {
+  roundScoreCol: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  roundPointsValue: {
+    color: '#68de18',
+    fontFamily: 'var(--font-heading)',
+    fontWeight: '900',
+    fontSize: '14px',
+  },
+  totalRow: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '10px',
+    borderTop: '1px solid #352d62',
+    marginTop: '4px',
+  },
+  totalLabel: {
+    color: '#ffffff',
+    fontFamily: 'var(--font-heading)',
+    fontWeight: '900',
+    fontSize: '13px',
+  },
+  totalSub: {
+    color: '#7a71a3',
+    fontSize: '11px',
+  },
+  totalPointsBig: {
+    color: '#ffbe1a',
+    fontFamily: 'var(--font-heading)',
+    fontSize: '20px',
+    fontWeight: '900',
+  },
+  shareSection: {
+    padding: '0 24px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+  },
+  shareHeadline: {
+    color: '#ffffff',
+    fontWeight: '700',
+    fontSize: '13px',
+    textAlign: 'center',
+  },
+  socialButtonsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '8px',
+  },
+  socialPill: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '8px',
-    padding: '8px 12px',
-    background: 'rgba(16, 185, 129, 0.08)',
-    border: '1px solid rgba(16, 185, 129, 0.25)',
+    padding: '8px',
+    borderRadius: '8px',
+    color: '#ffffff',
+    textDecoration: 'none',
+    fontWeight: '800',
+    fontSize: '12px',
+  },
+  loginBanner: {
+    margin: '16px 24px 0 24px',
+    background: 'rgba(116, 64, 230, 0.2)',
+    border: '1px solid rgba(116, 64, 230, 0.4)',
     borderRadius: '12px',
-    fontSize: '12px',
-    color: '#cbd5e1',
+    padding: '10px 14px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+    cursor: 'pointer',
   },
-  authBannerCheck: {
-    color: '#10b981',
-    fontWeight: 'bold',
-  },
-  authBannerTextLogged: {
+  loggedNotice: {
+    margin: '14px 24px 0 24px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+    color: '#68de18',
     fontSize: '12px',
+    fontWeight: '700',
+  },
+  actionButtonsCol: {
+    padding: '16px 24px 0 24px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+  },
+  actionBtnGreen: {
+    width: '100%',
+    padding: '15px',
+    fontSize: '15px',
   },
 };
-

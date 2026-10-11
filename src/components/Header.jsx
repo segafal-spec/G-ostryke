@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe2, Trophy, HelpCircle, Home, User, Flame, Volume2, VolumeX } from 'lucide-react';
+import { Trophy, HelpCircle, User, Flame, Volume2, VolumeX, Sparkles, Compass } from 'lucide-react';
 import {
   isSoundEnabled,
   setSoundEnabled,
@@ -36,107 +36,126 @@ export default function Header({
     }
   };
 
+  const streak = Number(stats?.streak_actuel) || 0;
+  const xp = Number(stats?.total_score) || 100;
+  const level = Math.max(1, Math.floor(xp / 1000) + 1);
+
   return (
     <header style={styles.header}>
-      {/* Brand & Retour Accueil (Desktop > 768px) */}
-      <div className="desktop-brand-header" style={styles.brand} onClick={onGoHome} title="Retour à l'accueil">
-        <div style={styles.logoIcon}>
-          <Globe2 size={18} color="#10b981" />
+      {/* Brand GeoGuessr Style (Badge Rouge Iconique BIZGAMES) */}
+      <div style={styles.leftSection}>
+        <div
+          className="geoguessr-logo-badge"
+          onClick={onGoHome}
+          title="Retour au menu principal"
+        >
+          <span style={styles.logoText}>BIZGAMES</span>
         </div>
-        <div style={styles.brandTextWrapper}>
-          <h1 style={styles.brandTitle}>BizGames</h1>
-          <span style={styles.brandSubtitle}>ÉCO-TITAN 2085</span>
-        </div>
+
+        {/* Navigation rapide Desktop (Style GeoGuessr) */}
+        <nav className="desktop-only" style={styles.navMenu}>
+          <button onClick={onGoHome} style={styles.navItemActive}>
+            Singleplayer
+          </button>
+          {onOpenLeaderboard && (
+            <button onClick={onOpenLeaderboard} style={styles.navItem}>
+              Classement
+            </button>
+          )}
+          <button onClick={onOpenRules} style={styles.navItem}>
+            Règles
+          </button>
+        </nav>
       </div>
 
-      {/* Brand Mobile (<= 768px) : Grand B */}
-      <div className="mobile-brand-b" onClick={onGoHome} title="Retour à l'accueil" aria-label="Retour à l'accueil">
-        <span className="mobile-b-letter">B</span>
-      </div>
+      {/* Stats en cours de partie & Profil Joueur */}
+      <div style={styles.rightSection}>
+        {/* En cours de partie : progression questions + score */}
+        {totalQuestions > 0 && (
+          <div style={styles.inGameBadges}>
+            <div style={styles.roundBadge}>
+              <span style={styles.roundLabel}>Round</span>
+              <span style={styles.roundValue}>
+                {currentIndex + 1}
+                <span style={styles.dim}>/{totalQuestions}</span>
+              </span>
+            </div>
 
-      {/* Stats & Actions */}
-      <div style={styles.statsContainer}>
-        {/* Progression des questions */}
-        <div style={styles.badge}>
-          <span style={styles.badgeValue}>
-            {currentIndex + 1}<span style={styles.dim}>/{totalQuestions}</span>
-          </span>
-        </div>
+            <div style={styles.scoreBadge}>
+              <Trophy size={13} color="#ffbe1a" />
+              <span style={styles.scoreValue}>
+                {currentScore.toLocaleString('fr-FR')}
+              </span>
+            </div>
+          </div>
+        )}
 
-        {/* Score cumulé */}
-        <div style={{ ...styles.badge, ...styles.scoreBadge }}>
-          <Trophy size={14} color="#f59e0b" />
-          <span style={styles.scoreValue}>
-            {currentScore.toLocaleString('fr-FR')}
-          </span>
-        </div>
-
-        {/* Bouton Profil / Mon Espace */}
+        {/* Profil Joueur GeoGuessr Style (Avatar, Flag, Coins, Level) */}
         {(onOpenPlayerHub || onOpenAuth) && (
-          <button
+          <div
             onClick={onOpenPlayerHub || onOpenAuth}
-            style={isUserLoggedIn ? styles.userPillActive : styles.userPillGuest}
-            title={isUserLoggedIn ? `Mon Espace Joueur (${user.displayName || user.email})` : 'Mon Espace & Statistiques'}
+            style={styles.playerPill}
+            title={isUserLoggedIn ? `Mon Profil (${user.displayName || user.email})` : 'Se connecter'}
           >
             {isUserLoggedIn ? (
               <>
+                {/* Avatar miniature */}
                 {(user.photoURL || stats?.photo_url) ? (
-                  <img src={user.photoURL || stats?.photo_url} alt="Avatar" style={styles.userAvatarMini} />
+                  <img src={user.photoURL || stats?.photo_url} alt="Avatar" style={styles.playerAvatar} />
                 ) : (
-                  <span style={styles.userAvatarInitial}>
-                    {(user.displayName || stats?.pseudo || user.email || 'U')[0].toUpperCase()}
-                  </span>
+                  <div style={styles.playerInitial}>
+                    {(user.displayName || stats?.pseudo || user.email || 'J')[0].toUpperCase()}
+                  </div>
                 )}
-                <span className="small-screen-hide" style={styles.userPseudo}>
-                  {user.displayName?.split(' ')[0] || 'Joueur'}
-                </span>
-                {stats?.streak_actuel > 0 && (
-                  <span style={styles.userStreak}>
-                    <Flame size={12} color="#f59e0b" />
-                    {stats.streak_actuel}
-                  </span>
-                )}
+
+                {/* Drapeau & Pseudo */}
+                <div className="small-screen-hide" style={styles.playerInfoCol}>
+                  <div style={styles.playerNameRow}>
+                    <span style={styles.flagEmoji}>🇫🇷</span>
+                    <span style={styles.playerPseudo}>
+                      {user.displayName?.split(' ')[0] || stats?.pseudo || 'Joueur'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Jetons / Pièces GeoGuessr */}
+                <div style={styles.coinsBadge}>
+                  <span style={styles.coinIcon}>🟣</span>
+                  <span style={styles.coinCount}>{(streak * 50) + 100}</span>
+                </div>
+
+                {/* Niveau GeoGuessr (Badge rond jaune) */}
+                <div style={styles.levelBadge} title={`Niveau ${level}`}>
+                  {level}
+                </div>
               </>
             ) : (
-              <>
-                <User size={14} />
-                <span className="small-screen-hide">Connexion</span>
-              </>
+              <div style={styles.loginPill}>
+                <User size={14} color="#ffffff" />
+                <span style={styles.loginText}>CONNEXION</span>
+              </div>
             )}
-          </button>
-        )}
-
-        {/* Bouton Classement */}
-        {onOpenLeaderboard && (
-          <button
-            onClick={onOpenLeaderboard}
-            style={styles.leaderboardBtn}
-            title="Classement & Scores"
-            aria-label="Classement & Scores"
-          >
-            <Trophy size={14} color="#f59e0b" />
-            <span className="small-screen-hide">Classement</span>
-          </button>
+          </div>
         )}
 
         {/* Effets Sonores */}
         <button
           onClick={handleToggleSound}
-          style={styles.helpButton}
-          title={soundOn ? 'Désactiver les effets sonores' : 'Activer les effets sonores'}
-          aria-label={soundOn ? 'Désactiver le son' : 'Activer le son'}
+          style={styles.iconBtn}
+          title={soundOn ? 'Désactiver le son' : 'Activer le son'}
+          aria-label="Toggle sound"
         >
-          {soundOn ? <Volume2 size={16} color="#10b981" /> : <VolumeX size={16} color="#64748b" />}
+          {soundOn ? <Volume2 size={16} color="#68de18" /> : <VolumeX size={16} color="#7a71a3" />}
         </button>
 
-        {/* Aide */}
+        {/* Aide / Règles */}
         <button
           onClick={onOpenRules}
-          style={styles.helpButton}
+          style={styles.iconBtn}
           title="Règles du jeu"
-          aria-label="Règles du jeu"
+          aria-label="Règles"
         >
-          <HelpCircle size={16} />
+          <HelpCircle size={16} color="#b3a9db" />
         </button>
       </div>
     </header>
@@ -149,196 +168,211 @@ const styles = {
     top: 0,
     left: 0,
     right: 0,
-    height: 'auto',
-    minHeight: '56px',
+    minHeight: '62px',
     paddingTop: 'calc(var(--safe-top) + 6px)',
     paddingBottom: '8px',
+    paddingLeft: '16px',
+    paddingRight: '16px',
     zIndex: 1000,
-    background: 'linear-gradient(180deg, rgba(3, 18, 14, 0.96) 0%, rgba(3, 18, 14, 0.88) 85%, transparent 100%)',
+    background: 'rgba(21, 19, 42, 0.94)',
     backdropFilter: 'blur(16px)',
+    borderBottom: '1px solid rgba(53, 45, 98, 0.85)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingLeft: '12px',
-    paddingRight: '12px',
-    borderBottom: '1px solid rgba(16, 185, 129, 0.22)',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.35)',
   },
-  brand: {
+  leftSection: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '24px',
+  },
+  logoText: {
+    fontFamily: 'var(--font-logo)',
+    fontWeight: '900',
+    fontSize: '18px',
+    letterSpacing: '0.8px',
+    textTransform: 'uppercase',
+  },
+  navMenu: {
     display: 'flex',
     alignItems: 'center',
     gap: '8px',
-    cursor: 'pointer',
-    flexShrink: 0,
   },
-  logoIcon: {
-    width: '32px',
-    height: '32px',
+  navItem: {
+    background: 'transparent',
+    border: 'none',
+    color: '#b3a9db',
+    fontSize: '14px',
+    fontWeight: '700',
+    fontFamily: 'var(--font-heading)',
+    padding: '8px 14px',
     borderRadius: '8px',
-    background: 'rgba(16, 185, 129, 0.15)',
-    border: '1px solid rgba(16, 185, 129, 0.4)',
-    boxShadow: '0 0 10px rgba(16, 185, 129, 0.2)',
+    cursor: 'pointer',
+    transition: 'all 0.15s ease',
+  },
+  navItemActive: {
+    background: 'rgba(116, 64, 230, 0.2)',
+    border: 'none',
+    color: '#ffffff',
+    fontSize: '14px',
+    fontWeight: '800',
+    fontFamily: 'var(--font-heading)',
+    padding: '8px 14px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+  },
+  rightSection: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+  },
+  inGameBadges: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+  },
+  roundBadge: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '5px',
+    background: 'var(--bg-card)',
+    border: '1px solid var(--bg-card-border)',
+    borderRadius: '9999px',
+    padding: '5px 12px',
+    fontSize: '12px',
+    fontWeight: '800',
+  },
+  roundLabel: {
+    color: '#7a71a3',
+    textTransform: 'uppercase',
+    fontSize: '10px',
+  },
+  roundValue: {
+    color: '#ffffff',
+    fontWeight: '900',
+  },
+  dim: {
+    color: '#7a71a3',
+  },
+  scoreBadge: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+    background: 'rgba(255, 190, 26, 0.15)',
+    border: '1px solid rgba(255, 190, 26, 0.35)',
+    borderRadius: '9999px',
+    padding: '5px 12px',
+    color: '#ffbe1a',
+    fontSize: '12px',
+    fontWeight: '900',
+  },
+  scoreValue: {
+    fontVariantNumeric: 'tabular-nums',
+  },
+  playerPill: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    background: 'var(--bg-card)',
+    border: '1px solid var(--bg-card-border)',
+    borderRadius: '9999px',
+    padding: '4px 10px 4px 4px',
+    cursor: 'pointer',
+    transition: 'all 0.15s ease',
+  },
+  playerAvatar: {
+    width: '28px',
+    height: '28px',
+    borderRadius: '50%',
+    objectFit: 'cover',
+    border: '2px solid var(--geo-purple)',
+  },
+  playerInitial: {
+    width: '28px',
+    height: '28px',
+    borderRadius: '50%',
+    background: 'linear-gradient(135deg, #7440e6, #e12239)',
+    color: '#ffffff',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    fontWeight: '900',
+    fontSize: '12px',
   },
-  brandTextWrapper: {
+  playerInfoCol: {
     display: 'flex',
     flexDirection: 'column',
   },
-  brandTitle: {
-    fontFamily: 'var(--font-heading)',
-    fontSize: '17px',
-    fontWeight: '800',
-    color: '#ffffff',
-    letterSpacing: '-0.3px',
-    lineHeight: '1.1',
-  },
-  brandSubtitle: {
-    fontSize: '8px',
-    fontWeight: '800',
-    color: '#10b981',
-    letterSpacing: '1px',
-    textTransform: 'uppercase',
-  },
-  statsContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '6px',
-    flexWrap: 'nowrap',
-  },
-  homeButton: {
+  playerNameRow: {
     display: 'flex',
     alignItems: 'center',
     gap: '4px',
-    background: 'rgba(255, 255, 255, 0.06)',
-    border: '1px solid rgba(16, 185, 129, 0.2)',
-    borderRadius: '16px',
-    padding: '6px 10px',
-    color: '#cbd5e1',
-    fontSize: '11px',
-    fontWeight: '600',
-    cursor: 'pointer',
   },
-  homeButtonText: {
-    display: 'inline',
-  },
-  badge: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '4px',
-    background: 'rgba(6, 27, 21, 0.85)',
-    border: '1px solid rgba(16, 185, 129, 0.25)',
-    borderRadius: '16px',
-    padding: '5px 9px',
+  flagEmoji: {
     fontSize: '12px',
-    fontWeight: '600',
   },
-  scoreBadge: {
-    background: 'rgba(245, 158, 11, 0.15)',
-    borderColor: 'rgba(245, 158, 11, 0.4)',
-    boxShadow: '0 0 12px rgba(245, 158, 11, 0.2)',
-  },
-  badgeValue: {
-    color: '#f8fafc',
-    fontVariantNumeric: 'tabular-nums',
-  },
-  scoreValue: {
-    color: '#fbbf24',
+  playerPseudo: {
+    color: '#ffffff',
     fontWeight: '800',
-    fontVariantNumeric: 'tabular-nums',
-  },
-  dim: {
-    color: '#6ee7b7',
-    fontSize: '10px',
-  },
-  helpButton: {
-    background: 'rgba(6, 27, 21, 0.8)',
-    border: '1px solid rgba(16, 185, 129, 0.3)',
-    borderRadius: '50%',
-    width: '32px',
-    height: '32px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: '#34d399',
-    cursor: 'pointer',
-    flexShrink: 0,
-  },
-  userPillGuest: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '6px',
-    background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(16, 185, 129, 0.15))',
-    border: '1px solid rgba(16, 185, 129, 0.4)',
-    borderRadius: '16px',
-    padding: '5px 10px',
-    color: '#34d399',
-    fontSize: '11px',
-    fontWeight: '700',
-    cursor: 'pointer',
-    transition: 'all 0.2s ease',
-  },
-  userPillActive: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '6px',
-    background: 'rgba(255, 255, 255, 0.08)',
-    border: '1px solid rgba(255, 255, 255, 0.18)',
-    borderRadius: '16px',
-    padding: '3px 8px 3px 4px',
-    color: '#f8fafc',
-    fontSize: '11px',
-    fontWeight: '700',
-    cursor: 'pointer',
-    transition: 'all 0.2s ease',
-  },
-  userAvatarMini: {
-    width: '22px',
-    height: '22px',
-    borderRadius: '50%',
-    objectFit: 'cover',
-  },
-  userAvatarInitial: {
-    width: '22px',
-    height: '22px',
-    borderRadius: '50%',
-    background: 'linear-gradient(135deg, #f59e0b, #d97706)',
-    color: '#0b0f19',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '11px',
-    fontWeight: '800',
-  },
-  userPseudo: {
-    maxWidth: '80px',
+    fontSize: '12px',
+    maxWidth: '90px',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
-  userStreak: {
+  coinsBadge: {
     display: 'flex',
     alignItems: 'center',
-    gap: '2px',
-    color: '#f59e0b',
+    gap: '3px',
+    background: 'rgba(116, 64, 230, 0.25)',
+    borderRadius: '9999px',
+    padding: '2px 7px',
     fontSize: '11px',
     fontWeight: '800',
-    marginLeft: '2px',
+    color: '#b3a9db',
   },
-  leaderboardBtn: {
+  coinIcon: {
+    fontSize: '11px',
+  },
+  coinCount: {
+    color: '#ffffff',
+    fontWeight: '800',
+  },
+  levelBadge: {
+    width: '22px',
+    height: '22px',
+    borderRadius: '50%',
+    background: '#ffbe1a',
+    color: '#15132a',
     display: 'flex',
     alignItems: 'center',
-    gap: '5px',
-    background: 'rgba(255, 255, 255, 0.06)',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
-    borderRadius: '16px',
-    padding: '5px 9px',
-    color: '#f8fafc',
+    justifyContent: 'center',
+    fontWeight: '900',
     fontSize: '11px',
-    fontWeight: '700',
+    boxShadow: '0 2px 6px rgba(255, 190, 26, 0.4)',
+  },
+  loginPill: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+    padding: '4px 8px',
+  },
+  loginText: {
+    color: '#ffffff',
+    fontWeight: '800',
+    fontSize: '12px',
+  },
+  iconBtn: {
+    width: '34px',
+    height: '34px',
+    borderRadius: '50%',
+    background: 'var(--bg-card)',
+    border: '1px solid var(--bg-card-border)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     cursor: 'pointer',
-    transition: 'all 0.2s ease',
+    transition: 'all 0.15s ease',
   },
 };
-
-

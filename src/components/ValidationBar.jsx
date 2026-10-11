@@ -7,20 +7,21 @@ export default function ValidationBar({ hasGuess, onValidate, isSubmitting }) {
       <button
         onClick={onValidate}
         disabled={!hasGuess || isSubmitting}
+        className={hasGuess ? 'geo-btn-green' : ''}
         style={{
-          ...styles.button,
+          ...styles.buttonBase,
           ...(hasGuess ? styles.buttonActive : styles.buttonDisabled),
         }}
       >
         {hasGuess ? (
           <>
-            <CheckCircle2 size={18} />
-            <span>Valider ma position</span>
+            <CheckCircle2 size={20} />
+            <span>CONFIRMER L'ESTIMATION</span>
           </>
         ) : (
           <>
-            <Navigation size={16} style={styles.iconPulse} />
-            <span>Touchez le globe pour viser</span>
+            <Navigation size={18} style={styles.iconPulse} />
+            <span>CLIQUEZ SUR LE GLOBE POUR VISER</span>
           </>
         )}
       </button>
@@ -31,48 +32,48 @@ export default function ValidationBar({ hasGuess, onValidate, isSubmitting }) {
 const styles = {
   container: {
     position: 'absolute',
-    bottom: 'calc(var(--safe-bottom) + 16px)',
+    bottom: 'calc(var(--safe-bottom) + 20px)',
     left: '50%',
     transform: 'translateX(-50%)',
     zIndex: 999,
     width: 'calc(100% - 24px)',
-    maxWidth: '420px',
+    maxWidth: '440px',
     display: 'flex',
     justifyContent: 'center',
     pointerEvents: 'none',
   },
-  button: {
+  buttonBase: {
     pointerEvents: 'auto',
     width: '100%',
-    padding: '13px 20px',
-    borderRadius: '16px',
-    fontSize: '14px',
-    fontWeight: '700',
+    padding: '15px 24px',
+    borderRadius: '9999px',
+    fontSize: '15px',
+    fontWeight: '900',
     fontFamily: 'var(--font-heading)',
-    letterSpacing: '0.2px',
+    letterSpacing: '0.6px',
+    textTransform: 'uppercase',
     border: 'none',
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '8px',
-    transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-    backdropFilter: 'blur(12px)',
+    gap: '10px',
+    transition: 'all 0.15s ease',
   },
   buttonActive: {
-    background: 'linear-gradient(135deg, #f59e0b 0%, #10b981 100%)',
-    color: '#03120e',
-    boxShadow: '0 6px 25px rgba(16, 185, 129, 0.45)',
-    fontWeight: '800',
+    background: 'var(--geo-green)',
+    color: '#122803',
+    boxShadow: '0 5px 0 var(--geo-green-shadow), 0 10px 24px rgba(104, 222, 24, 0.45)',
   },
   buttonDisabled: {
-    background: 'rgba(3, 18, 14, 0.9)',
-    color: '#34d399',
-    border: '1px solid rgba(16, 185, 129, 0.25)',
+    background: 'rgba(32, 27, 63, 0.95)',
+    color: '#7a71a3',
+    border: '1px solid #352d62',
     cursor: 'not-allowed',
-    boxShadow: '0 6px 20px rgba(0, 0, 0, 0.4)',
+    boxShadow: '0 6px 20px rgba(0, 0, 0, 0.5)',
   },
   iconPulse: {
-    opacity: 0.8,
+    opacity: 0.85,
+    animation: 'spin 4s linear infinite',
   },
 };

@@ -1,32 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
 
 :root {
-  /* Thème Futuriste Solar-Punk Eco-Titan 2085 */
-  --bg-primary: #03120e;
-  --bg-secondary: #061d16;
-  --bg-surface: rgba(6, 27, 21, 0.88);
-  --bg-surface-elevated: #0b3629;
-  --bg-glass: rgba(16, 185, 129, 0.06);
-  --text-main: #f1fdf8;
-  --text-muted: #a7c5ba;
-  --text-dim: #608577;
-  
-  /* Accents Solaire & Émeraude Bioluminescent */
-  --gold-primary: #f59e0b;
-  --gold-glow: rgba(245, 158, 11, 0.4);
-  --gold-champagne: #fbbf24;
-  --emerald-primary: #10b981;
-  --emerald-glow: rgba(16, 185, 129, 0.45);
-  --emerald-bright: #34d399;
-  --mint-cyan: #2dd4bf;
-  --mint-glow: rgba(45, 212, 191, 0.35);
+  /* =========================================================
+     THÈME OFFICIEL GEOGUESSR V2 (Deep Cosmic Violet & Neon)
+     ========================================================= */
+  --bg-primary: #15132a;
+  --bg-secondary: #1a1638;
+  --bg-card: #201b3f;
+  --bg-card-hover: #292350;
+  --bg-card-border: #352d62;
+  --bg-card-border-glow: rgba(116, 64, 230, 0.4);
+  --bg-elevated: #2c2557;
+  --bg-surface: rgba(32, 27, 63, 0.94);
+  --bg-glass: rgba(116, 64, 230, 0.08);
 
-  --accent-border: rgba(52, 211, 153, 0.2);
-  --accent-border-gold: rgba(245, 158, 11, 0.32);
+  /* GeoGuessr Accents */
+  --geo-red: #e12239;
+  --geo-red-dark: #b8162a;
+  --geo-green: #68de18;
+  --geo-green-hover: #78ed27;
+  --geo-green-shadow: #3fa509;
+  --geo-purple: #7440e6;
+  --geo-purple-hover: #8655f5;
+  --geo-purple-shadow: #4d23a8;
+  --geo-flame: #ff6e14;
+  --geo-gold: #ffbe1a;
+  --geo-cyan: #00d2ff;
+  --geo-magenta: #ff2d78;
 
-  --font-heading: 'Outfit', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  
+  /* Typographie & Couleurs de texte */
+  --text-main: #ffffff;
+  --text-muted: #b3a9db;
+  --text-dim: #7a71a3;
+
+  --font-logo: 'Titan One', 'Outfit', sans-serif;
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -43,87 +53,154 @@ html, body, #root {
   height: 100%;
   min-height: 100dvh;
   background-color: var(--bg-primary);
+  /* Fond Cosmique Étoilé GeoGuessr */
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.06) 0%, transparent 45%);
+    radial-gradient(circle at 10% 20%, rgba(116, 64, 230, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(225, 34, 57, 0.12) 0%, transparent 45%),
+    radial-gradient(1.5px 1.5px at 15% 25%, #ffffff, transparent),
+    radial-gradient(1px 1px at 30% 65%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 70% 20%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 2px at 85% 45%, #ffd460, transparent),
+    radial-gradient(1px 1px at 50% 85%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 90% 90%, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(1px 1px at 40% 15%, #00d2ff, transparent);
+  background-size: 100% 100%, 100% 100%, 350px 350px, 400px 400px, 300px 300px, 500px 500px, 450px 450px, 380px 380px, 320px 320px;
+  background-repeat: no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat;
   color: var(--text-main);
   font-family: var(--font-body);
   touch-action: manipulation;
   overscroll-behavior-y: none;
 }
 
-/* Animations Solar-Punk */
-@keyframes slideUp {
-  from {
-    transform: translate(-50%, 100%);
-    opacity: 0;
-  }
-  to {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
+/* =========================================================
+   BOUTONS 3D ICONIQUES GEOGUESSR
+   ========================================================= */
+.geo-btn-green {
+  background: var(--geo-green);
+  color: #122803;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 var(--geo-green-shadow), 0 10px 20px rgba(104, 222, 24, 0.3);
+  transition: all 0.12s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+}
+.geo-btn-green:hover {
+  background: var(--geo-green-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 0 var(--geo-green-shadow), 0 14px 25px rgba(104, 222, 24, 0.4);
+}
+.geo-btn-green:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--geo-green-shadow), 0 4px 10px rgba(104, 222, 24, 0.2);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.geo-btn-purple {
+  background: linear-gradient(135deg, #7440e6 0%, #6028d9 100%);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--geo-purple-shadow), 0 8px 18px rgba(116, 64, 230, 0.35);
+  transition: all 0.12s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+}
+.geo-btn-purple:hover {
+  background: linear-gradient(135deg, #8553f5 0%, #6e33ed 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 var(--geo-purple-shadow), 0 10px 22px rgba(116, 64, 230, 0.45);
+}
+.geo-btn-purple:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--geo-purple-shadow);
 }
 
-@keyframes popIn {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+/* =========================================================
+   CARTES GÉOGUESSR (VIOLET PROFOND + BORDURES DOUCES)
+   ========================================================= */
+.geo-card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.geo-card:hover {
+  border-color: rgba(144, 102, 247, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 15px rgba(116, 64, 230, 0.2);
 }
 
-@keyframes solarPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 14px rgba(245, 158, 11, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
-  }
+/* Badge Logo Rouge GeoGuessr Style */
+.geoguessr-logo-badge {
+  background: var(--geo-red);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-logo);
+  font-size: 19px;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 3px 0 var(--geo-red-dark), 0 6px 16px rgba(225, 34, 57, 0.4);
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.12s ease;
+}
+.geoguessr-logo-badge:active {
+  transform: scale(0.96);
 }
 
-@keyframes bioPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 16px rgba(16, 185, 129, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-  }
-}
-
-/* Pin personnalisé cliquable sur la carte */
+/* =========================================================
+   PINS DE JEU GEOGUESSR
+   ========================================================= */
 .custom-guess-pin {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Pin Rouge de Tir du Joueur */
 .pin-pulse {
-  width: 26px;
-  height: 26px;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #e12239, #b8162a);
   border: 3px solid #ffffff;
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
-  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.7);
+  box-shadow: 0 4px 16px rgba(225, 34, 57, 0.8);
   animation: bouncePin 0.35s ease-out;
 }
 
+/* Pin Vert / Cible Réelle */
 .target-pulse {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(135deg, #10b981, #059669);
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #68de18, #3fa509);
   border: 3px solid #ffffff;
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
-  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.85);
+  box-shadow: 0 4px 18px rgba(104, 222, 24, 0.9);
 }
 
 @keyframes bouncePin {
@@ -137,10 +214,11 @@ html, body, #root {
   }
 }
 
-/* Ligne pointillée animée entre les deux points */
+/* Ligne pointillée animée GeoGuessr (Blanc lumineux) */
 .path-dash-animated {
   stroke-dasharray: 8, 8;
-  animation: dashAnimation 1.5s linear infinite;
+  stroke: #ffffff;
+  animation: dashAnimation 1.2s linear infinite;
 }
 
 @keyframes dashAnimation {
@@ -149,23 +227,63 @@ html, body, #root {
   }
 }
 
-/* Scrollbar épurée Solar-Punk */
+/* =========================================================
+   BARRE DE NAVIGATION MOBILE (TAB BAR INFERIEURE)
+   ========================================================= */
+.geo-mobile-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(58px + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: rgba(21, 19, 42, 0.97);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--bg-card-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1000;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.geo-mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex: 1;
+  height: 100%;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  user-select: none;
+}
+.geo-mobile-nav-item.active {
+  color: var(--geo-green);
+}
+
+/* Scrollbar Stylisée GeoGuessr */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(4, 18, 14, 0.6);
+  background: #15132a;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(52, 211, 153, 0.25);
-  border-radius: 3px;
+  background: #352d62;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 158, 11, 0.4);
+  background: var(--geo-purple);
 }
 
-/* Adaptations Media Queries Mobile */
+/* Classes utilitaires Responsive */
 @media (max-width: 768px) {
   .desktop-only {
     display: none !important;
@@ -184,65 +302,6 @@ html, body, #root {
   }
 }
 
-/* Responsive Brand Header (Grand "B" sur Mobile) */
-.mobile-brand-b {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  min-width: 38px;
-  min-height: 38px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, rgba(6, 27, 21, 0.88) 100%);
-  border: 1.5px solid rgba(16, 185, 129, 0.5);
-  box-shadow: 0 0 14px rgba(16, 185, 129, 0.35);
-  cursor: pointer;
-  user-select: none;
-  flex-shrink: 0;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.mobile-brand-b:active {
-  transform: scale(0.92);
-}
-
-.mobile-b-letter {
-  font-family: var(--font-heading);
-  font-size: 26px;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1;
-  letter-spacing: -0.5px;
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
-  display: inline-block;
-  transform: translateY(-0.5px);
-}
-
-@media (max-width: 768px) {
-  .desktop-brand-header {
-    display: none !important;
-  }
-  .mobile-brand-b {
-    display: flex !important;
-  }
-  .mobile-header-left {
-    display: flex !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .desktop-brand-header {
-    display: flex !important;
-  }
-  .mobile-brand-b {
-    display: none !important;
-  }
-  .mobile-header-left {
-    display: none !important;
-  }
-}
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -252,29 +311,12 @@ html, body, #root {
   animation: spin 1s linear infinite;
 }
 
-@keyframes dropdownFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+@keyframes pulseGlow {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
 }
 
-.mobile-dropdown-enter {
-  animation: dropdownFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
 }
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 20px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-

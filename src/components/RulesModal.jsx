@@ -1,77 +1,62 @@
 import React from 'react';
-import { X, MapPin, Trophy, Share2, HelpCircle, Award } from 'lucide-react';
+import { X, Globe2, Target, Trophy, Clock, HelpCircle, CheckCircle2 } from 'lucide-react';
 
 export default function RulesModal({ onClose }) {
   return (
-    <div style={styles.backdrop} onClick={onClose}>
-      <div style={styles.modal} onClick={(e) => e.stopPropagation()}>
+    <div style={styles.backdrop}>
+      <div style={styles.modal} className="geo-card">
         <div style={styles.header}>
           <div style={styles.titleRow}>
-            <HelpCircle size={22} color="#10b981" />
-            <h2 style={styles.title}>Règles & Barème BizGames</h2>
+            <div style={styles.badgeIcon}>
+              <HelpCircle size={18} color="#68de18" />
+            </div>
+            <h2 style={styles.title}>Règles du Jeu</h2>
           </div>
           <button onClick={onClose} style={styles.closeBtn} aria-label="Fermer">
-            <X size={20} />
+            <X size={18} />
           </button>
         </div>
 
         <div style={styles.rulesList}>
           <div style={styles.ruleItem}>
             <div style={styles.iconCircle}>
-              <MapPin size={20} color="#10b981" />
+              <Target size={18} color="#68de18" />
             </div>
             <div>
-              <h3 style={styles.ruleHeading}>5 Défis Économiques Quotidiens</h3>
+              <div style={styles.ruleHeading}>1. Visez juste sur le Globe 3D</div>
               <p style={styles.ruleText}>
-                Chaque jour, une série de 5 questions sur l'économie planétaire : sièges sociaux, places financières, giga-usines et géants de la Tech mondiale.
+                Faites tourner la Terre ou la carte 2D et cliquez à l'endroit exact où se trouve le siège, l'usine ou le hub business demandé.
               </p>
             </div>
           </div>
 
           <div style={styles.ruleItem}>
             <div style={styles.iconCircle}>
-              <Trophy size={20} color="#f59e0b" />
+              <Trophy size={18} color="#ffbe1a" />
             </div>
             <div>
-              <h3 style={styles.ruleHeading}>Scoring & Précision au Kilomètre</h3>
+              <div style={styles.ruleHeading}>2. Jusqu'à 1 000 points par question</div>
               <p style={styles.ruleText}>
-                Chaque question rapporte jusqu'à <strong>1 000 points</strong> selon votre proximité géographique réelle au kilomètre près (formule exponentielle Haversine), pour un total maximal de <strong>5 000 points</strong> par manche quotidienne.
+                Plus votre estimation est proche de la cible géographique réelle, plus vous gagnez de points (barème Haversine haute précision).
               </p>
             </div>
           </div>
 
           <div style={styles.ruleItem}>
             <div style={styles.iconCircle}>
-              <Award size={20} color="#fbbf24" />
+              <Clock size={18} color="#00d2ff" />
             </div>
             <div>
-              <h3 style={styles.ruleHeading}>Rangs Business Officiels (sur 5 000 pts)</h3>
-              <div style={{ fontSize: '12px', color: '#cbd5e1', lineHeight: '1.6', marginTop: '4px' }}>
-                <div>👑 <strong>Légende du Business Mondial</strong> (4 700 – 5 000 pts)</div>
-                <div>💎 <strong>Directeur Général International</strong> (4 000 – 4 699 pts)</div>
-                <div>🌍 <strong>Stratège Global</strong> (3 200 – 3 999 pts)</div>
-                <div>⚡ <strong>Analyste de Marchés</strong> (2 400 – 3 199 pts)</div>
-                <div>🌱 <strong>Entrepreneur en Herbe</strong> (1 500 – 2 399 pts)</div>
-                <div>🍃 <strong>Stagiaire du Commerce</strong> (0 – 1 499 pts)</div>
-              </div>
-            </div>
-          </div>
-
-          <div style={styles.ruleItem}>
-            <div style={styles.iconCircle}>
-              <Share2 size={20} color="#2dd4bf" />
-            </div>
-            <div>
-              <h3 style={styles.ruleHeading}>Grille de Partage sans Spoiler</h3>
+              <div style={styles.ruleHeading}>3. Défi Quotidien en 5 questions</div>
               <p style={styles.ruleText}>
-                À la fin, comparez votre performance avec vos collègues et votre réseau grâce à la grille d'emojis sans révéler les réponses.
+                Chaque jour à minuit UTC, une nouvelle manche de 5 questions s'ouvre pour tous les joueurs du monde entier.
               </p>
             </div>
           </div>
         </div>
 
-        <button onClick={onClose} style={styles.gotItButton}>
-          Rejoindre la Mission !
+        <button onClick={onClose} className="geo-btn-green" style={styles.gotItButton}>
+          <span>J'AI COMPRIS, JOUER !</span>
         </button>
       </div>
     </div>
@@ -86,8 +71,8 @@ const styles = {
     right: 0,
     bottom: 0,
     zIndex: 2500,
-    background: 'rgba(2, 9, 7, 0.88)',
-    backdropFilter: 'blur(12px)',
+    background: 'rgba(10, 8, 20, 0.88)',
+    backdropFilter: 'blur(16px)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -95,13 +80,13 @@ const styles = {
     animation: 'fadeIn 0.2s ease-out',
   },
   modal: {
-    background: 'rgba(3, 18, 14, 0.96)',
-    border: '1px solid rgba(16, 185, 129, 0.35)',
-    borderRadius: '20px',
+    background: 'var(--bg-card)',
+    border: '1px solid var(--bg-card-border)',
+    borderRadius: '24px',
     width: '100%',
     maxWidth: '480px',
     padding: '24px',
-    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(16, 185, 129, 0.15)',
+    boxShadow: '0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(116, 64, 230, 0.25)',
     display: 'flex',
     flexDirection: 'column',
     gap: '20px',
@@ -116,18 +101,33 @@ const styles = {
     alignItems: 'center',
     gap: '10px',
   },
+  badgeIcon: {
+    width: '32px',
+    height: '32px',
+    borderRadius: '8px',
+    background: 'rgba(104, 222, 24, 0.15)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   title: {
     fontFamily: 'var(--font-heading)',
     fontSize: '18px',
-    fontWeight: '800',
+    fontWeight: '900',
     color: '#ffffff',
+    margin: 0,
   },
   closeBtn: {
-    background: 'transparent',
-    border: 'none',
-    color: '#94a3b8',
+    background: 'rgba(255, 255, 255, 0.06)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    borderRadius: '50%',
+    width: '32px',
+    height: '32px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#b3a9db',
     cursor: 'pointer',
-    padding: '4px',
   },
   rulesList: {
     display: 'flex',
@@ -140,11 +140,11 @@ const styles = {
     gap: '14px',
   },
   iconCircle: {
-    width: '40px',
-    height: '40px',
-    borderRadius: '12px',
-    background: 'rgba(16, 185, 129, 0.12)',
-    border: '1px solid rgba(16, 185, 129, 0.3)',
+    width: '38px',
+    height: '38px',
+    borderRadius: '10px',
+    background: 'rgba(21, 19, 42, 0.8)',
+    border: '1px solid #352d62',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -152,26 +152,19 @@ const styles = {
   },
   ruleHeading: {
     fontSize: '14px',
-    fontWeight: '700',
-    color: '#f8fafc',
-    marginBottom: '2px',
+    fontWeight: '800',
+    color: '#ffffff',
+    marginBottom: '3px',
   },
   ruleText: {
-    fontSize: '13px',
-    color: '#a7f3d0',
+    fontSize: '12px',
+    color: '#b3a9db',
     lineHeight: '1.45',
+    margin: 0,
   },
   gotItButton: {
-    background: 'linear-gradient(135deg, #f59e0b 0%, #10b981 100%)',
-    color: '#03120e',
-    border: 'none',
-    borderRadius: '14px',
-    padding: '12px',
-    fontSize: '14px',
-    fontWeight: '800',
-    fontFamily: 'var(--font-heading)',
-    cursor: 'pointer',
     width: '100%',
-    boxShadow: '0 4px 15px rgba(16, 185, 129, 0.4)',
+    padding: '14px',
+    fontSize: '15px',
   },
 };

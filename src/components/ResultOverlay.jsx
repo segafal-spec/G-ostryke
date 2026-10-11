@@ -14,13 +14,13 @@ export default function ResultOverlay({
 
   return (
     <div style={styles.sheetContainer}>
-      <div style={styles.content}>
+      <div style={styles.content} className="geo-card">
         {/* En-tête du résultat avec Score & Distance */}
         <div style={styles.metricHeader}>
           <div style={styles.distanceBlock}>
             <span style={styles.metricLabel}>DISTANCE</span>
             <div style={styles.distanceValueRow}>
-              <Compass size={17} color="#f59e0b" />
+              <Compass size={18} color="#e12239" />
               <span style={styles.distanceValue}>
                 {distanceKm < 1 ? '< 1 km !' : `${distanceKm.toLocaleString('fr-FR')} km`}
               </span>
@@ -28,11 +28,11 @@ export default function ResultOverlay({
           </div>
 
           <div style={styles.scoreBlock}>
-            <span style={styles.metricLabel}>SCORE DU TIR</span>
+            <span style={styles.metricLabel}>POINTS GAGNÉS</span>
             <div style={styles.scoreValueRow}>
               <span style={styles.emojiBadge}>{emoji}</span>
               <span style={styles.scoreValue}>{score.toLocaleString('fr-FR')}</span>
-              <span style={styles.scoreMax}>/ 1 000 pts</span>
+              <span style={styles.scoreMax}>/ 1 000</span>
             </div>
           </div>
         </div>
@@ -44,18 +44,18 @@ export default function ResultOverlay({
               ...styles.gaugeFill,
               width: `${scorePercent}%`,
               background:
-                score >= 900
-                  ? 'linear-gradient(90deg, #10b981, #34d399)'
-                  : score >= 600
-                  ? 'linear-gradient(90deg, #f59e0b, #fbbf24)'
-                  : 'linear-gradient(90deg, #ef4444, #f97316)',
+                score >= 850
+                  ? 'linear-gradient(90deg, #68de18, #8bf03a)'
+                  : score >= 500
+                  ? 'linear-gradient(90deg, #ffbe1a, #ffd460)'
+                  : 'linear-gradient(90deg, #e12239, #ff5964)',
             }}
           />
         </div>
 
-        {/* Lieu exact */}
+        {/* Lieu exact & Pays */}
         <div style={styles.locationBlock}>
-          <MapPin size={16} color="#10b981" />
+          <MapPin size={17} color="#68de18" />
           <span style={styles.locationText}>
             <strong>{question.lieu_nom}</strong> — {question.pays}
           </span>
@@ -77,10 +77,10 @@ export default function ResultOverlay({
           )}
         </div>
 
-        {/* Bouton d'action */}
-        <button onClick={onNext} style={styles.nextButton}>
-          <span>{isLastQuestion ? 'Voir mon bilan final' : 'Question suivante'}</span>
-          {isLastQuestion ? <Trophy size={16} /> : <ArrowRight size={16} />}
+        {/* Bouton d'action vert 3D GeoGuessr */}
+        <button onClick={onNext} className="geo-btn-green" style={styles.nextButton}>
+          <span>{isLastQuestion ? 'VOIR LE BILAN FINAL' : 'QUESTION SUIVANTE'}</span>
+          {isLastQuestion ? <Trophy size={18} /> : <ArrowRight size={18} />}
         </button>
       </div>
     </div>
@@ -94,136 +94,132 @@ const styles = {
     left: '50%',
     transform: 'translateX(-50%)',
     width: 'calc(100% - 20px)',
-    maxWidth: '580px',
-    maxHeight: '75vh',
+    maxWidth: '560px',
+    maxHeight: '78vh',
     overflowY: 'auto',
     zIndex: 1000,
-    background: 'rgba(3, 18, 14, 0.96)',
-    backdropFilter: 'blur(20px)',
-    border: '1px solid rgba(16, 185, 129, 0.35)',
-    borderRadius: '18px',
-    padding: '16px 18px',
-    boxShadow: '0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(16, 185, 129, 0.15)',
-    animation: 'slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
     pointerEvents: 'auto',
   },
   content: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '12px',
+    background: 'rgba(32, 27, 63, 0.96)',
+    backdropFilter: 'blur(20px)',
+    border: '1px solid #352d62',
+    borderRadius: '20px',
+    padding: '16px 20px',
+    boxShadow: '0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(116, 64, 230, 0.25)',
   },
   metricHeader: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: '8px',
+    gap: '12px',
+    marginBottom: '12px',
+    paddingBottom: '12px',
+    borderBottom: '1px solid rgba(53, 45, 98, 0.8)',
   },
   distanceBlock: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '1px',
-  },
-  metricLabel: {
-    fontSize: '10px',
-    fontWeight: '700',
-    color: '#6ee7b7',
-    letterSpacing: '0.6px',
-  },
-  distanceValueRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '5px',
-  },
-  distanceValue: {
-    fontFamily: 'var(--font-heading)',
-    fontSize: '19px',
-    fontWeight: '800',
-    color: '#ffffff',
+    gap: '2px',
   },
   scoreBlock: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
-    gap: '1px',
+    gap: '2px',
+  },
+  metricLabel: {
+    fontSize: '10px',
+    fontWeight: '800',
+    color: '#7a71a3',
+    letterSpacing: '0.8px',
+    textTransform: 'uppercase',
+  },
+  distanceValueRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+  },
+  distanceValue: {
+    fontFamily: 'var(--font-heading)',
+    fontSize: '20px',
+    fontWeight: '900',
+    color: '#ffffff',
+    fontVariantNumeric: 'tabular-nums',
   },
   scoreValueRow: {
     display: 'flex',
-    alignItems: 'baseline',
+    alignItems: 'center',
     gap: '5px',
   },
   emojiBadge: {
-    fontSize: '16px',
+    fontSize: '18px',
   },
   scoreValue: {
     fontFamily: 'var(--font-heading)',
-    fontSize: '20px',
-    fontWeight: '800',
-    color: '#fbbf24',
+    fontSize: '24px',
+    fontWeight: '900',
+    color: '#68de18',
+    fontVariantNumeric: 'tabular-nums',
   },
   scoreMax: {
     fontSize: '11px',
-    fontWeight: '600',
-    color: '#6ee7b7',
+    color: '#7a71a3',
+    fontWeight: '700',
   },
   gaugeBackground: {
     width: '100%',
-    height: '5px',
-    backgroundColor: 'rgba(16, 185, 129, 0.15)',
-    borderRadius: '3px',
+    height: '6px',
+    backgroundColor: '#15132a',
+    borderRadius: '9999px',
     overflow: 'hidden',
+    marginBottom: '14px',
   },
   gaugeFill: {
     height: '100%',
-    borderRadius: '3px',
+    borderRadius: '9999px',
+    transition: 'width 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
   },
   locationBlock: {
     display: 'flex',
     alignItems: 'center',
-    gap: '6px',
-    color: '#ecfdf5',
-    fontSize: '13px',
+    gap: '8px',
+    marginBottom: '10px',
+    background: 'rgba(21, 19, 42, 0.7)',
+    padding: '8px 12px',
+    borderRadius: '10px',
+    border: '1px solid #352d62',
   },
   locationText: {
-    color: '#a7f3d0',
+    color: '#ffffff',
+    fontSize: '13px',
+    fontWeight: '600',
   },
   explanationBox: {
-    background: 'rgba(6, 27, 21, 0.8)',
-    border: '1px solid rgba(16, 185, 129, 0.22)',
+    background: 'rgba(21, 19, 42, 0.6)',
     borderRadius: '10px',
     padding: '10px 12px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '6px',
+    marginBottom: '14px',
+    border: '1px solid rgba(53, 45, 98, 0.6)',
   },
   explanationText: {
     fontSize: '12px',
     lineHeight: '1.45',
-    color: '#e2e8f0',
+    color: '#b3a9db',
+    margin: 0,
   },
   sourceLink: {
-    alignSelf: 'flex-start',
     display: 'inline-flex',
     alignItems: 'center',
     gap: '4px',
-    fontSize: '10px',
-    color: '#34d399',
+    marginTop: '6px',
+    color: '#7440e6',
+    fontSize: '11px',
+    fontWeight: '700',
     textDecoration: 'none',
-    fontWeight: '600',
   },
   nextButton: {
-    background: 'linear-gradient(135deg, #f59e0b 0%, #10b981 100%)',
-    color: '#03120e',
-    border: 'none',
-    borderRadius: '12px',
-    padding: '12px 18px',
-    fontSize: '14px',
-    fontWeight: '800',
-    fontFamily: 'var(--font-heading)',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '6px',
-    boxShadow: '0 6px 20px rgba(16, 185, 129, 0.4)',
+    width: '100%',
+    padding: '13px',
   },
 };
