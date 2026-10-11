@@ -260,7 +260,7 @@ export default function SummaryModal({
           </div>
         )}
 
-        {/* ACTIONS INFÉRIEURES (BOUTONS VERTS GEOGUESSR) */}
+        {/* ACTIONS INFÉRIEURES (BOUTONS VERTS 3D) */}
         <div style={styles.actionButtonsCol}>
           {onGoHome && (
             <button

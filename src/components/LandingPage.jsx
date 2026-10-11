@@ -44,7 +44,7 @@ export default function LandingPage({
   const xp = Number(stats?.total_score) || 100;
   const level = Math.max(1, Math.floor(xp / 1000) + 1);
 
-  // Vue active dans le Dashboard GeoGuessr : 'home' (Accueil/Solo) | 'duels' (Compétitif) | 'sectors' (Monde/Secteurs)
+  // Vue active dans le Dashboard : 'home' (Accueil/Solo) | 'duels' (Compétitif) | 'sectors' (Monde/Secteurs)
   const [activeTab, setActiveTab] = useState('home');
   const [legalTab, setLegalTab] = useState(null);
   const [selectedDuelRound, setSelectedDuelRound] = useState(1);
@@ -79,7 +79,7 @@ export default function LandingPage({
     if (onStartGame) onStartGame();
   };
 
-  // Jours de la semaine pour la carte Streak GeoGuessr
+  // Jours de la semaine pour la carte Streak
   const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
   const todayDayIdx = (new Date().getDay() + 6) % 7; // Lundi = 0
 
@@ -99,11 +99,11 @@ export default function LandingPage({
         </div>
       )}
 
-      {/* 1. HEADER GEOGUESSR (Logo Rouge, Navigation, Profil) */}
+      {/* 1. HEADER (Logo Rouge BizGames, Navigation, Profil) */}
       <header style={styles.header}>
         <div style={styles.headerLeft}>
           <div
-            className="geoguessr-logo-badge"
+            className="geo-logo-badge"
             onClick={() => setActiveTab('home')}
             title="BizGames"
           >
@@ -244,7 +244,7 @@ export default function LandingPage({
                   </div>
                   <div style={styles.modeCardIconWrapper}>
                     <img
-                      src="/images/geoguessr_daily_badge.jpg"
+                      src="/images/bizgames_daily_badge.jpg"
                       alt="Défi Quotidien"
                       style={styles.modeCardImg}
                     />
@@ -265,7 +265,7 @@ export default function LandingPage({
                   </div>
                   <div style={styles.modeCardIconWrapper}>
                     <img
-                      src="/images/geoguessr_duel_crystals.jpg"
+                      src="/images/bizgames_duel_crystals.jpg"
                       alt="Compétitif Duels"
                       style={styles.modeCardImg}
                     />
@@ -299,14 +299,14 @@ export default function LandingPage({
                 {/* Image / Illustration de l'avatar au sommet du globe */}
                 <div style={styles.avatarGlobeWrapper}>
                   <img
-                    src="/images/geoguessr_globe_avatar.jpg"
-                    alt="Mon Avatar sur la Terre"
+                    src={user?.photoURL || stats?.photo_url || '/images/avatars/avatar_tech_visionary.jpg'}
+                    alt="Avatar Titan Business"
                     style={styles.avatarGlobeImg}
                   />
                   <div style={styles.glowAura} />
                 </div>
 
-                {/* Bouton Violet GeoGuessr "MODIFIER L'AVATAR" */}
+                {/* Bouton Violet "MODIFIER L'AVATAR" */}
                 {(onOpenPlayerHub || onOpenAuth) && (
                   <button
                     onClick={onOpenPlayerHub || onOpenAuth}
@@ -318,7 +318,7 @@ export default function LandingPage({
                   </button>
                 )}
 
-                {/* Gros Bouton Vert Énergique GeoGuessr "JOUER" */}
+                {/* Gros Bouton Vert Énergique "JOUER" */}
                 <div style={styles.playCtaWrapper}>
                   <button
                     onClick={handleLaunchDaily}
@@ -428,7 +428,7 @@ export default function LandingPage({
                   {/* Cristaux de Duel Lumineux au Centre */}
                   <div style={styles.duelCrystalsCenter}>
                     <img
-                      src="/images/geoguessr_duel_crystals.jpg"
+                      src="/images/bizgames_duel_crystals.jpg"
                       alt="Duel Cristaux"
                       style={styles.crystalsImg}
                     />
@@ -457,7 +457,7 @@ export default function LandingPage({
                 </div>
               </div>
 
-              {/* Échelle de Rangs à droite (Ladder GeoGuessr) */}
+              {/* Échelle de Rangs à droite (Ladder) */}
               <div className="desktop-only" style={styles.arenaLadderCol}>
                 <div className="geo-card" style={styles.ladderCard}>
                   <h4 style={styles.ladderTitle}>RANGS</h4>
@@ -607,7 +607,7 @@ export default function LandingPage({
       {/* 4. FOOTER AVEC MENTIONS LEGALES (DESKTOP) */}
       <footer className="desktop-only" style={styles.footer}>
         <div style={styles.footerInner}>
-          <span style={styles.copyright}>© 2026 BizGames — Thème GeoGuessr Cosmic Edition. 100% Gratuit.</span>
+          <span style={styles.copyright}>© 2026 BizGames — L'Économie Mondiale à portée de clic. 100% Gratuit.</span>
           <div style={styles.footerLinks}>
             <button onClick={() => setLegalTab('cgu')} style={styles.footerLink}>Conditions</button>
             <button onClick={() => setLegalTab('privacy')} style={styles.footerLink}>Confidentialité</button>

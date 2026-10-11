@@ -77,7 +77,7 @@ export default function ResultOverlay({
           )}
         </div>
 
-        {/* Bouton d'action vert 3D GeoGuessr */}
+        {/* Bouton d'action vert 3D */}
         <button onClick={onNext} className="geo-btn-green" style={styles.nextButton}>
           <span>{isLastQuestion ? 'VOIR LE BILAN FINAL' : 'QUESTION SUIVANTE'}</span>
           {isLastQuestion ? <Trophy size={18} /> : <ArrowRight size={18} />}

@@ -42,17 +42,17 @@ export default function Header({
 
   return (
     <header style={styles.header}>
-      {/* Brand GeoGuessr Style (Badge Rouge Iconique BIZGAMES) */}
+      {/* Brand Style (Badge Rouge Iconique BIZGAMES) */}
       <div style={styles.leftSection}>
         <div
-          className="geoguessr-logo-badge"
+          className="geo-logo-badge"
           onClick={onGoHome}
           title="Retour au menu principal"
         >
           <span style={styles.logoText}>BIZGAMES</span>
         </div>
 
-        {/* Navigation rapide Desktop (Style GeoGuessr) */}
+        {/* Navigation rapide Desktop */}
         <nav className="desktop-only" style={styles.navMenu}>
           <button onClick={onGoHome} style={styles.navItemActive}>
             Singleplayer
@@ -90,7 +90,7 @@ export default function Header({
           </div>
         )}
 
-        {/* Profil Joueur GeoGuessr Style (Avatar, Flag, Coins, Level) */}
+        {/* Profil Joueur (Avatar, Flag, Coins, Level) */}
         {(onOpenPlayerHub || onOpenAuth) && (
           <div
             onClick={onOpenPlayerHub || onOpenAuth}
@@ -118,13 +118,13 @@ export default function Header({
                   </div>
                 </div>
 
-                {/* Jetons / Pièces GeoGuessr */}
+                {/* Jetons / Pièces */}
                 <div style={styles.coinsBadge}>
                   <span style={styles.coinIcon}>🟣</span>
                   <span style={styles.coinCount}>{(streak * 50) + 100}</span>
                 </div>
 
-                {/* Niveau GeoGuessr (Badge rond jaune) */}
+                {/* Niveau (Badge rond jaune) */}
                 <div style={styles.levelBadge} title={`Niveau ${level}`}>
                   {level}
                 </div>

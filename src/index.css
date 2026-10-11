@@ -150,7 +150,8 @@ html, body, #root {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 15px rgba(116, 64, 230, 0.2);
 }
 
-/* Badge Logo Rouge GeoGuessr Style */
+/* Badge Logo Rouge BizGames */
+.geo-logo-badge,
 .geoguessr-logo-badge {
   background: var(--geo-red);
   color: #ffffff;
@@ -167,6 +168,7 @@ html, body, #root {
   user-select: none;
   transition: transform 0.12s ease;
 }
+.geo-logo-badge:active,
 .geoguessr-logo-badge:active {
   transform: scale(0.96);
 }
