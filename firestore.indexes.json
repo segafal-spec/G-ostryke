@@ -1,0 +1,64 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "scores",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "user_id", "order": "ASCENDING" },
+        { "fieldPath": "date", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scores",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "user_id", "order": "ASCENDING" },
+        { "fieldPath": "date", "order": "ASCENDING" },
+        { "fieldPath": "is_official", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scores",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "date", "order": "ASCENDING" },
+        { "fieldPath": "is_official", "order": "ASCENDING" },
+        { "fieldPath": "score_total", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scores",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "user_id", "order": "ASCENDING" },
+        { "fieldPath": "cree_le", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "statut_validation", "order": "ASCENDING" },
+        { "fieldPath": "actif", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "questions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "statut_validation", "order": "ASCENDING" },
+        { "fieldPath": "categorie", "order": "ASCENDING" },
+        { "fieldPath": "actif", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "parties_jouees", "order": "ASCENDING" },
+        { "fieldPath": "meilleur_score", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

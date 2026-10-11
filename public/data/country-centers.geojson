@@ -1,0 +1,3463 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AF",
+        "name": "Afghanistan",
+        "name_fr": "Afghanistan",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "AF",
+        "codeFr": "AF"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.6911,
+          34.8037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AO",
+        "name": "Angola",
+        "name_fr": "Angola",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "AN",
+        "codeFr": "AN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.8,
+          -12.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AL",
+        "name": "Albania",
+        "name_fr": "Albanie",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "AL",
+        "codeFr": "AL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.1168,
+          41.2805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AE",
+        "name": "United Arab Emirates",
+        "name_fr": "Émirats arabes unis",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "EA",
+        "codeFr": "EA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          54.2434,
+          24.1954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AR",
+        "name": "Argentina",
+        "name_fr": "Argentine",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "AR",
+        "codeFr": "AR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64,
+          -38.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AM",
+        "name": "Armenia",
+        "name_fr": "Arménie",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "AR",
+        "codeFr": "AR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.1642,
+          40.0616
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AQ",
+        "name": "Antarctica",
+        "name_fr": "Antarctique",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "AN",
+        "codeFr": "AN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.1269,
+          -72.9874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TF",
+        "name": "Fr. S. Antarctic Lands",
+        "name_fr": "Terres australes françaises",
+        "scalerank": 3,
+        "LABELRANK": 6,
+        "displayCode": "TE",
+        "codeFr": "TE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.4608,
+          -49.1186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AU",
+        "name": "Australia",
+        "name_fr": "Australie",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "AU",
+        "codeFr": "AU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134,
+          -24.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AT",
+        "name": "Austria",
+        "name_fr": "Autriche",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "AU",
+        "codeFr": "AU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4846,
+          47.6447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AZ",
+        "name": "Azerbaijan",
+        "name_fr": "Azerbaïdjan",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "AZ",
+        "codeFr": "AZ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.4086,
+          40.2851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BI",
+        "name": "Burundi",
+        "name_fr": "Burundi",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "BU",
+        "codeFr": "BU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.9554,
+          -3.3943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BE",
+        "name": "Belgium",
+        "name_fr": "Belgique",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "BE",
+        "codeFr": "BE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3085,
+          50.7431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BJ",
+        "name": "Benin",
+        "name_fr": "Bénin",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "BE",
+        "codeFr": "BE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3273,
+          9.8084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BF",
+        "name": "Burkina Faso",
+        "name_fr": "Burkina Faso",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "BF",
+        "codeFr": "BF"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.7226,
+          12.1517
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BD",
+        "name": "Bangladesh",
+        "name_fr": "Bangladesh",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "BA",
+        "codeFr": "BA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.6113,
+          23.3989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BG",
+        "name": "Bulgaria",
+        "name_fr": "Bulgarie",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "BU",
+        "codeFr": "BU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.6873,
+          42.8937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BS",
+        "name": "Bahamas",
+        "name_fr": "Bahamas",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "BA",
+        "codeFr": "BA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.8641,
+          24.3514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BA",
+        "name": "Bosnia and Herz.",
+        "name_fr": "Bosnie-Herzégovine",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "BH",
+        "codeFr": "BH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.9565,
+          44.2813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BY",
+        "name": "Belarus",
+        "name_fr": "Biélorussie",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "BI",
+        "codeFr": "BI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.1961,
+          53.2974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BZ",
+        "name": "Belize",
+        "name_fr": "Belize",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "BE",
+        "codeFr": "BE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.6304,
+          17.4172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BO",
+        "name": "Bolivia",
+        "name_fr": "Bolivie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "BO",
+        "codeFr": "BO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.016,
+          -16.5249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BR",
+        "name": "Brazil",
+        "name_fr": "Brésil",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "BR",
+        "codeFr": "BR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53,
+          -10.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BN",
+        "name": "Brunei",
+        "name_fr": "Brunei",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "BR",
+        "codeFr": "BR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.8426,
+          4.6284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BT",
+        "name": "Bhutan",
+        "name_fr": "Bhoutan",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "BH",
+        "codeFr": "BH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.6151,
+          27.4678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "BW",
+        "name": "Botswana",
+        "name_fr": "Botswana",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "BO",
+        "codeFr": "BO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.4713,
+          -22.4767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CF",
+        "name": "Central African Rep.",
+        "name_fr": "République centrafricaine",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "RC",
+        "codeFr": "RC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.508,
+          6.3295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CA",
+        "name": "Canada",
+        "name_fr": "Canada",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "CA",
+        "codeFr": "CA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.3,
+          56.1
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CH",
+        "name": "Switzerland",
+        "name_fr": "Suisse",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "SU",
+        "codeFr": "SU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3065,
+          46.7969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CL",
+        "name": "Chile",
+        "name_fr": "Chili",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "CL",
+        "codeFr": "CL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.5,
+          -35.6
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CN",
+        "name": "China",
+        "name_fr": "Chine",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "CH",
+        "codeFr": "CH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.2,
+          35.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CI",
+        "name": "Côte d'Ivoire",
+        "name_fr": "Côte d'Ivoire",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "CO",
+        "codeFr": "CO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.2885,
+          7.9482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CM",
+        "name": "Cameroon",
+        "name_fr": "Cameroun",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "CA",
+        "codeFr": "CA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1815,
+          6.8172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CD",
+        "name": "Dem. Rep. Congo",
+        "name_fr": "RD Congo",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "CD",
+        "codeFr": "CD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6,
+          -2.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CG",
+        "name": "Congo",
+        "name_fr": "Congo",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "CO",
+        "codeFr": "CO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.8157,
+          -1.0893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CO",
+        "name": "Colombia",
+        "name_fr": "Colombie",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "CO",
+        "codeFr": "CO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73,
+          4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CR",
+        "name": "Costa Rica",
+        "name_fr": "Costa Rica",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "CR",
+        "codeFr": "CR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1735,
+          9.7849
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CU",
+        "name": "Cuba",
+        "name_fr": "Cuba",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "CU",
+        "codeFr": "CU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.7331,
+          21.7228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CY",
+        "name": "N. Cyprus",
+        "name_fr": "Chypre du Nord",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "CH",
+        "codeFr": "CH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.4265,
+          35.1773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CY",
+        "name": "Cyprus",
+        "name_fr": "Chypre",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "CH",
+        "codeFr": "CH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.2442,
+          35.0246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "CZ",
+        "name": "Czechia",
+        "name_fr": "Tchéquie",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "TC",
+        "codeFr": "TC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.9036,
+          49.707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "DE",
+        "name": "Germany",
+        "name_fr": "Allemagne",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "AL",
+        "codeFr": "AL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.4,
+          51.1
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "DJ",
+        "name": "Djibouti",
+        "name_fr": "Djibouti",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "DJ",
+        "codeFr": "DJ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.5708,
+          11.8109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "DK",
+        "name": "Denmark",
+        "name_fr": "Danemark",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "DA",
+        "codeFr": "DA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6227,
+          56.278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "DO",
+        "name": "Dominican Rep.",
+        "name_fr": "République dominicaine",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "RD",
+        "codeFr": "RD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.4936,
+          18.7902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "DZ",
+        "name": "Algeria",
+        "name_fr": "Algérie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "AL",
+        "codeFr": "AL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.8,
+          28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "EC",
+        "name": "Ecuador",
+        "name_fr": "Équateur",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "EQ",
+        "codeFr": "EQ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.81,
+          -1.5906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "EG",
+        "name": "Egypt",
+        "name_fr": "Égypte",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "EG",
+        "codeFr": "EG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.8,
+          26.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "ER",
+        "name": "Eritrea",
+        "name_fr": "Érythrée",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "ER",
+        "codeFr": "ER"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.8259,
+          14.6505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "ES",
+        "name": "Spain",
+        "name_fr": "Espagne",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "ES",
+        "codeFr": "ES"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7,
+          40.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "EE",
+        "name": "Estonia",
+        "name_fr": "Estonie",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "ES",
+        "codeFr": "ES"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.949,
+          58.6085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "ET",
+        "name": "Ethiopia",
+        "name_fr": "Éthiopie",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "ET",
+        "codeFr": "ET"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.117,
+          9.0604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "FI",
+        "name": "Finland",
+        "name_fr": "Finlande",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "FI",
+        "codeFr": "FI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26,
+          64
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "FJ",
+        "name": "Fiji",
+        "name_fr": "Fidji",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "FI",
+        "codeFr": "FI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          178.046,
+          -17.7246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "FK",
+        "name": "Falkland Is.",
+        "name_fr": "Îles Malouines",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "IL",
+        "codeFr": "IL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.585,
+          -51.735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "FR",
+        "name": "France",
+        "name_fr": "France",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "FR",
+        "codeFr": "FR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.35,
+          46.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GA",
+        "name": "Gabon",
+        "name_fr": "Gabon",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "GA",
+        "codeFr": "GA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8914,
+          -0.3375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GB",
+        "name": "United Kingdom",
+        "name_fr": "Royaume-Uni",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "RU",
+        "codeFr": "RU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2,
+          54
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GE",
+        "name": "Georgia",
+        "name_fr": "Géorgie",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "GE",
+        "codeFr": "GE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.5727,
+          42.1673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GH",
+        "name": "Ghana",
+        "name_fr": "Ghana",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "GH",
+        "codeFr": "GH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.0847,
+          8.2353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GN",
+        "name": "Guinea",
+        "name_fr": "Guinée",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "GU",
+        "codeFr": "GU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10.9035,
+          10.3848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GM",
+        "name": "Gambia",
+        "name_fr": "Gambie",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "GA",
+        "codeFr": "GA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -15.2952,
+          13.4738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GW",
+        "name": "Guinea-Bissau",
+        "name_fr": "Guinée-Bissau",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "GU",
+        "codeFr": "GU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -15.0573,
+          11.9896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GQ",
+        "name": "Eq. Guinea",
+        "name_fr": "Guinée équatoriale",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "GU",
+        "codeFr": "GU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.0698,
+          1.5893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GR",
+        "name": "Greece",
+        "name_fr": "Grèce",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "GR",
+        "codeFr": "GR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22,
+          39
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GL",
+        "name": "Greenland",
+        "name_fr": "Groenland",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "GR",
+        "codeFr": "GR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -41.0315,
+          74.1476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GT",
+        "name": "Guatemala",
+        "name_fr": "Guatemala",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "GU",
+        "codeFr": "GU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.1816,
+          15.6246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GY",
+        "name": "Guyana",
+        "name_fr": "Guyana",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "GU",
+        "codeFr": "GU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.8983,
+          4.4815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "HN",
+        "name": "Honduras",
+        "name_fr": "Honduras",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "HO",
+        "codeFr": "HO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.4169,
+          14.7363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "HR",
+        "name": "Croatia",
+        "name_fr": "Croatie",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "CR",
+        "codeFr": "CR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4881,
+          44.8072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "HT",
+        "name": "Haiti",
+        "name_fr": "Haïti",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "HA",
+        "codeFr": "HA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.7025,
+          18.8396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "HU",
+        "name": "Hungary",
+        "name_fr": "Hongrie",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "HO",
+        "codeFr": "HO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0481,
+          47.3671
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "ID",
+        "name": "Indonesia",
+        "name_fr": "Indonésie",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "IN",
+        "codeFr": "IN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.9,
+          -0.7
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "IN",
+        "name": "India",
+        "name_fr": "Inde",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "IN",
+        "codeFr": "IN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.9,
+          21.7
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "IE",
+        "name": "Ireland",
+        "name_fr": "Irlande",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "IR",
+        "codeFr": "IR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.829,
+          53.6288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "IR",
+        "name": "Iran",
+        "name_fr": "Iran",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "IR",
+        "codeFr": "IR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          53.6,
+          32.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "IQ",
+        "name": "Iraq",
+        "name_fr": "Irak",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "IR",
+        "codeFr": "IR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.5846,
+          33.6056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "IS",
+        "name": "Iceland",
+        "name_fr": "Islande",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "IS",
+        "codeFr": "IS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -19.266,
+          65.278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "IL",
+        "name": "Israel",
+        "name_fr": "Israël",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "IS",
+        "codeFr": "IS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.08,
+          31.8823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "IT",
+        "name": "Italy",
+        "name_fr": "Italie",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "IT",
+        "codeFr": "IT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5,
+          42.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "JM",
+        "name": "Jamaica",
+        "name_fr": "Jamaïque",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "JA",
+        "codeFr": "JA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.3481,
+          18.1877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "JO",
+        "name": "Jordan",
+        "name_fr": "Jordanie",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "JO",
+        "codeFr": "JO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.8216,
+          31.1843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "JP",
+        "name": "Japan",
+        "name_fr": "Japon",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "JA",
+        "codeFr": "JA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.2,
+          36.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "KZ",
+        "name": "Kazakhstan",
+        "name_fr": "Kazakhstan",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "KA",
+        "codeFr": "KA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.2524,
+          47.2638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "KE",
+        "name": "Kenya",
+        "name_fr": "Kenya",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "KE",
+        "codeFr": "KE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.7182,
+          1.3897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "KG",
+        "name": "Kyrgyzstan",
+        "name_fr": "Kirghizistan",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "KI",
+        "codeFr": "KI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.2424,
+          41.3661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "KH",
+        "name": "Cambodia",
+        "name_fr": "Cambodge",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "CA",
+        "codeFr": "CA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.8952,
+          12.6413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "KR",
+        "name": "South Korea",
+        "name_fr": "Corée du Sud",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "CS",
+        "codeFr": "CS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.5819,
+          36.7619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "XK",
+        "name": "Kosovo",
+        "name_fr": "Kosovo",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "KO",
+        "codeFr": "KO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.957,
+          42.546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "KW",
+        "name": "Kuwait",
+        "name_fr": "Koweït",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "KO",
+        "codeFr": "KO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.5863,
+          29.2394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LA",
+        "name": "Laos",
+        "name_fr": "Laos",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "LA",
+        "codeFr": "LA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.5253,
+          18.4791
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LB",
+        "name": "Lebanon",
+        "name_fr": "Liban",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "LI",
+        "codeFr": "LI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.8517,
+          33.7982
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LR",
+        "name": "Liberia",
+        "name_fr": "Libéria",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "LI",
+        "codeFr": "LI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.1427,
+          6.7539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LY",
+        "name": "Libya",
+        "name_fr": "Libye",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "LI",
+        "codeFr": "LI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2,
+          26.3
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LK",
+        "name": "Sri Lanka",
+        "name_fr": "Sri Lanka",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "SL",
+        "codeFr": "SL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.8638,
+          7.6314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LS",
+        "name": "Lesotho",
+        "name_fr": "Lesotho",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "LE",
+        "codeFr": "LE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.3703,
+          -29.5848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LT",
+        "name": "Lithuania",
+        "name_fr": "Lituanie",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "LI",
+        "codeFr": "LI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.0166,
+          55.201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LU",
+        "name": "Luxembourg",
+        "name_fr": "Luxembourg",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "LU",
+        "codeFr": "LU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9286,
+          49.7266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LV",
+        "name": "Latvia",
+        "name_fr": "Lettonie",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "LE",
+        "codeFr": "LE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9806,
+          56.7983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MA",
+        "name": "Morocco",
+        "name_fr": "Maroc",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "MA",
+        "codeFr": "MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.4259,
+          28.7698
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MD",
+        "name": "Moldova",
+        "name_fr": "Moldavie",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "MO",
+        "codeFr": "MO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.4704,
+          47.0466
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MG",
+        "name": "Madagascar",
+        "name_fr": "Madagascar",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "MA",
+        "codeFr": "MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.9892,
+          -17.9715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MX",
+        "name": "Mexico",
+        "name_fr": "Mexique",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "ME",
+        "codeFr": "ME"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.5,
+          23.6
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MK",
+        "name": "Macedonia",
+        "name_fr": "Macédoine du Nord",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "MA",
+        "codeFr": "MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.551,
+          41.6015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "ML",
+        "name": "Mali",
+        "name_fr": "Mali",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "MA",
+        "codeFr": "MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.9,
+          17.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MM",
+        "name": "Myanmar",
+        "name_fr": "Birmanie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "BI",
+        "codeFr": "BI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.0427,
+          20.0041
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "ME",
+        "name": "Montenegro",
+        "name_fr": "Monténégro",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "MO",
+        "codeFr": "MO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.4466,
+          42.7414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MN",
+        "name": "Mongolia",
+        "name_fr": "Mongolie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "MO",
+        "codeFr": "MO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.9711,
+          47.2124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MZ",
+        "name": "Mozambique",
+        "name_fr": "Mozambique",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "MO",
+        "codeFr": "MO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0035,
+          -17.7203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MR",
+        "name": "Mauritania",
+        "name_fr": "Mauritanie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "MA",
+        "codeFr": "MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10.9,
+          20.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MW",
+        "name": "Malawi",
+        "name_fr": "Malawi",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "MA",
+        "codeFr": "MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.1269,
+          -12.9958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MY",
+        "name": "Malaysia",
+        "name_fr": "Malaisie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "MA",
+        "codeFr": "MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102,
+          3.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "NA",
+        "name": "Namibia",
+        "name_fr": "Namibie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "NA",
+        "codeFr": "NA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.743,
+          -21.3912
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "NC",
+        "name": "New Caledonia",
+        "name_fr": "Nouvelle-Calédonie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "NO",
+        "codeFr": "NO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          165.5117,
+          -21.1777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "NE",
+        "name": "Niger",
+        "name_fr": "Niger",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "NI",
+        "codeFr": "NI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8,
+          17.6
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "NG",
+        "name": "Nigeria",
+        "name_fr": "Nigéria",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "NI",
+        "codeFr": "NI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6,
+          9
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "NI",
+        "name": "Nicaragua",
+        "name_fr": "Nicaragua",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "NI",
+        "codeFr": "NI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.9779,
+          13.0788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "NL",
+        "name": "Netherlands",
+        "name_fr": "Pays-Bas",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "PB",
+        "codeFr": "PB"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.44,
+          51.924
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "NO",
+        "name": "Norway",
+        "name_fr": "Norvège",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "NO",
+        "codeFr": "NO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5,
+          61.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "NP",
+        "name": "Nepal",
+        "name_fr": "Népal",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "NE",
+        "codeFr": "NE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.2539,
+          28.3094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "NZ",
+        "name": "New Zealand",
+        "name_fr": "Nouvelle-Zélande",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "NZ",
+        "codeFr": "NZ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.8,
+          -41.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "OM",
+        "name": "Oman",
+        "name_fr": "Oman",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "OM",
+        "codeFr": "OM"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          56.5664,
+          20.86
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PK",
+        "name": "Pakistan",
+        "name_fr": "Pakistan",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "PA",
+        "codeFr": "PA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.1865,
+          30.7046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PA",
+        "name": "Panama",
+        "name_fr": "Panama",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "PA",
+        "codeFr": "PA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.3172,
+          8.4958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PE",
+        "name": "Peru",
+        "name_fr": "Pérou",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "PE",
+        "codeFr": "PE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75,
+          -9.1
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PH",
+        "name": "Philippines",
+        "name_fr": "Philippines",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "PH",
+        "codeFr": "PH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.7852,
+          15.3777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PG",
+        "name": "Papua New Guinea",
+        "name_fr": "Papouasie-Nouvelle-Guinée",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "PG",
+        "codeFr": "PG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          146.2144,
+          -7.9634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PL",
+        "name": "Poland",
+        "name_fr": "Pologne",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "PO",
+        "codeFr": "PO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.1,
+          52
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PR",
+        "name": "Puerto Rico",
+        "name_fr": "Porto Rico",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "PO",
+        "codeFr": "PO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.4335,
+          18.276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "KP",
+        "name": "North Korea",
+        "name_fr": "Corée du Nord",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "CN",
+        "codeFr": "CN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.2595,
+          39.8869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PT",
+        "name": "Portugal",
+        "name_fr": "Portugal",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "PT",
+        "codeFr": "PT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2,
+          39.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PY",
+        "name": "Paraguay",
+        "name_fr": "Paraguay",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "PA",
+        "codeFr": "PA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.4626,
+          -23.4705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "PS",
+        "name": "Palestine",
+        "name_fr": "Palestine",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "PA",
+        "codeFr": "PA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.2409,
+          31.8087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "QA",
+        "name": "Qatar",
+        "name_fr": "Qatar",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "QA",
+        "codeFr": "QA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.1513,
+          25.2571
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "RO",
+        "name": "Romania",
+        "name_fr": "Roumanie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "RO",
+        "codeFr": "RO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.1957,
+          45.8163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "RU",
+        "name": "Russia",
+        "name_fr": "Russie",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "RU",
+        "codeFr": "RU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95,
+          62
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "RW",
+        "name": "Rwanda",
+        "name_fr": "Rwanda",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "RW",
+        "codeFr": "RW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.9331,
+          -2.0986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "EH",
+        "name": "W. Sahara",
+        "name_fr": "Sahara occidental",
+        "scalerank": 1,
+        "LABELRANK": 7,
+        "displayCode": "SA",
+        "codeFr": "SA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -12.0274,
+          24.7777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SA",
+        "name": "Saudi Arabia",
+        "name_fr": "Arabie saoudite",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "AS",
+        "codeFr": "AS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45,
+          24
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SD",
+        "name": "Sudan",
+        "name_fr": "Soudan",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "SO",
+        "codeFr": "SO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.2,
+          15.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SS",
+        "name": "S. Sudan",
+        "name_fr": "Soudan du Sud",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "SO",
+        "codeFr": "SO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.0376,
+          8.0371
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SN",
+        "name": "Senegal",
+        "name_fr": "Sénégal",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "SE",
+        "codeFr": "SE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -14.4733,
+          13.8513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SB",
+        "name": "Solomon Is.",
+        "name_fr": "Îles Salomon",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "IL",
+        "codeFr": "IL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          159.1576,
+          -7.9338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SL",
+        "name": "Sierra Leone",
+        "name_fr": "Sierra Leone",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "SL",
+        "codeFr": "SL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -11.7022,
+          8.6034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SV",
+        "name": "El Salvador",
+        "name_fr": "Salvador",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "SA",
+        "codeFr": "SA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.957,
+          13.8202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SO",
+        "name": "Somaliland",
+        "name_fr": "Somaliland",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "SO",
+        "codeFr": "SO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.1148,
+          10.4518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SO",
+        "name": "Somalia",
+        "name_fr": "Somalie",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "SO",
+        "codeFr": "SO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.9046,
+          6.705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "RS",
+        "name": "Serbia",
+        "name_fr": "Serbie",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "SE",
+        "codeFr": "SE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.9352,
+          43.8598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SR",
+        "name": "Suriname",
+        "name_fr": "Suriname",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "SU",
+        "codeFr": "SU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.8707,
+          3.6979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SK",
+        "name": "Slovakia",
+        "name_fr": "Slovaquie",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "SL",
+        "codeFr": "SL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.1828,
+          48.7347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SI",
+        "name": "Slovenia",
+        "name_fr": "Slovénie",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "SL",
+        "codeFr": "SL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.9954,
+          46.1071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SE",
+        "name": "Sweden",
+        "name_fr": "Suède",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "SE",
+        "codeFr": "SE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15,
+          62
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SZ",
+        "name": "Swaziland",
+        "name_fr": "Eswatini",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "ES",
+        "codeFr": "ES"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.4158,
+          -26.3393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "SY",
+        "name": "Syria",
+        "name_fr": "Syrie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "SY",
+        "codeFr": "SY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.1957,
+          35.3136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TD",
+        "name": "Chad",
+        "name_fr": "Tchad",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "TC",
+        "codeFr": "TC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7,
+          15.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TG",
+        "name": "Togo",
+        "name_fr": "Togo",
+        "scalerank": 1,
+        "LABELRANK": 6,
+        "displayCode": "TO",
+        "codeFr": "TO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.8697,
+          8.8848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TH",
+        "name": "Thailand",
+        "name_fr": "Thaïlande",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "TH",
+        "codeFr": "TH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.6615,
+          13.1808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TJ",
+        "name": "Tajikistan",
+        "name_fr": "Tadjikistan",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "TA",
+        "codeFr": "TA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.9616,
+          38.5196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TM",
+        "name": "Turkmenistan",
+        "name_fr": "Turkménistan",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "TU",
+        "codeFr": "TU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          58.7165,
+          39.2482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TL",
+        "name": "Timor-Leste",
+        "name_fr": "Timor oriental",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "TO",
+        "codeFr": "TO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.9164,
+          -8.791
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TT",
+        "name": "Trinidad and Tobago",
+        "name_fr": "Trinité-et-Tobago",
+        "scalerank": 1,
+        "LABELRANK": 5,
+        "displayCode": "TT",
+        "codeFr": "TT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.4594,
+          10.4787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TN",
+        "name": "Tunisia",
+        "name_fr": "Tunisie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "TU",
+        "codeFr": "TU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.8415,
+          34.0168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TR",
+        "name": "Turkey",
+        "name_fr": "Turquie",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "TR",
+        "codeFr": "TR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.2,
+          39
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TW",
+        "name": "Taiwan",
+        "name_fr": "Taïwan",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "TA",
+        "codeFr": "TA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.1051,
+          23.8614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "TZ",
+        "name": "Tanzania",
+        "name_fr": "Tanzanie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "TA",
+        "codeFr": "TA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.2263,
+          -6.6126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "UG",
+        "name": "Uganda",
+        "name_fr": "Ouganda",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "OU",
+        "codeFr": "OU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.7968,
+          1.325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "UA",
+        "name": "Ukraine",
+        "name_fr": "Ukraine",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "UA",
+        "codeFr": "UA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.1,
+          48.3
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "UY",
+        "name": "Uruguay",
+        "name_fr": "Uruguay",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "UR",
+        "codeFr": "UR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1768,
+          -32.8734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "US",
+        "name": "United States of America",
+        "name_fr": "États-Unis",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "US",
+        "codeFr": "US"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.5,
+          39.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "UZ",
+        "name": "Uzbekistan",
+        "name_fr": "Ouzbékistan",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "OU",
+        "codeFr": "OU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.5089,
+          41.0755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "VE",
+        "name": "Venezuela",
+        "name_fr": "Venezuela",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "VE",
+        "codeFr": "VE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.5,
+          6.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "VN",
+        "name": "Vietnam",
+        "name_fr": "Vietnam",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "VI",
+        "codeFr": "VI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8896,
+          16.9776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "VU",
+        "name": "Vanuatu",
+        "name_fr": "Vanuatu",
+        "scalerank": 1,
+        "LABELRANK": 4,
+        "displayCode": "VA",
+        "codeFr": "VA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          166.937,
+          -15.2729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "YE",
+        "name": "Yemen",
+        "name_fr": "Yémen",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "YE",
+        "codeFr": "YE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.4715,
+          15.5119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "ZA",
+        "name": "South Africa",
+        "name_fr": "Afrique du Sud",
+        "scalerank": 1,
+        "LABELRANK": 2,
+        "displayCode": "AS",
+        "codeFr": "AS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25,
+          -29
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "ZM",
+        "name": "Zambia",
+        "name_fr": "Zambie",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "ZA",
+        "codeFr": "ZA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8546,
+          -12.9854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "ZW",
+        "name": "Zimbabwe",
+        "name_fr": "Zimbabwe",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "ZI",
+        "codeFr": "ZI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.6112,
+          -18.8659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "AD",
+        "name": "Andorra",
+        "name_fr": "Andorre",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "AN",
+        "codeFr": "AN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.5218,
+          42.5063
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MC",
+        "name": "Monaco",
+        "name_fr": "Monaco",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "MO",
+        "codeFr": "MO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4246,
+          43.7384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "GI",
+        "name": "Gibraltar",
+        "name_fr": "Gibraltar",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "GI",
+        "codeFr": "GI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.3536,
+          36.1408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "LI",
+        "name": "Liechtenstein",
+        "name_fr": "Liechtenstein",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "LI",
+        "codeFr": "LI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.5209,
+          47.166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code2": "MT",
+        "name": "Malta",
+        "name_fr": "Malte",
+        "scalerank": 1,
+        "LABELRANK": 3,
+        "displayCode": "MA",
+        "codeFr": "MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3754,
+          35.9375
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap');
+
+:root {
+  /* Thème Futuriste Solar-Punk Eco-Titan 2085 */
+  --bg-primary: #03120e;
+  --bg-secondary: #061d16;
+  --bg-surface: rgba(6, 27, 21, 0.88);
+  --bg-surface-elevated: #0b3629;
+  --bg-glass: rgba(16, 185, 129, 0.06);
+  --text-main: #f1fdf8;
+  --text-muted: #a7c5ba;
+  --text-dim: #608577;
+  
+  /* Accents Solaire & Émeraude Bioluminescent */
+  --gold-primary: #f59e0b;
+  --gold-glow: rgba(245, 158, 11, 0.4);
+  --gold-champagne: #fbbf24;
+  --emerald-primary: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.45);
+  --emerald-bright: #34d399;
+  --mint-cyan: #2dd4bf;
+  --mint-glow: rgba(45, 212, 191, 0.35);
+
+  --accent-border: rgba(52, 211, 153, 0.2);
+  --accent-border-gold: rgba(245, 158, 11, 0.32);
+
+  --font-heading: 'Outfit', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.06) 0%, transparent 45%);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  touch-action: manipulation;
+  overscroll-behavior-y: none;
+}
+
+/* Animations Solar-Punk */
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes solarPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(245, 158, 11, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+@keyframes bioPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* Pin personnalisé cliquable sur la carte */
+.custom-guess-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-pulse {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border: 3px solid #ffffff;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.7);
+  animation: bouncePin 0.35s ease-out;
+}
+
+.target-pulse {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: 3px solid #ffffff;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.85);
+}
+
+@keyframes bouncePin {
+  0% {
+    transform: translateY(-16px) rotate(-45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(-45deg);
+    opacity: 1;
+  }
+}
+
+/* Ligne pointillée animée entre les deux points */
+.path-dash-animated {
+  stroke-dasharray: 8, 8;
+  animation: dashAnimation 1.5s linear infinite;
+}
+
+@keyframes dashAnimation {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+/* Scrollbar épurée Solar-Punk */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(4, 18, 14, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(52, 211, 153, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.4);
+}
+
+/* Adaptations Media Queries Mobile */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .small-screen-hide {
+    display: none !important;
+  }
+}
+
+/* Responsive Brand Header (Grand "B" sur Mobile) */
+.mobile-brand-b {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, rgba(6, 27, 21, 0.88) 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.35);
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.mobile-brand-b:active {
+  transform: scale(0.92);
+}
+
+.mobile-b-letter {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+  display: inline-block;
+  transform: translateY(-0.5px);
+}
+
+@media (max-width: 768px) {
+  .desktop-brand-header {
+    display: none !important;
+  }
+  .mobile-brand-b {
+    display: flex !important;
+  }
+  .mobile-header-left {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-brand-header {
+    display: flex !important;
+  }
+  .mobile-brand-b {
+    display: none !important;
+  }
+  .mobile-header-left {
+    display: none !important;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mobile-dropdown-enter {
+  animation: dropdownFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
